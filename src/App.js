@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './Sass/style.scss'
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
