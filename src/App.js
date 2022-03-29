@@ -1,25 +1,18 @@
 import logo from './logo.svg';
-import './App.css';
+import './Sass/style.scss'
+import NavBar from "./components/NavBar";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import bg from './images/vex-bg.jpg';
+import Champions from './components/Champions';
+import Match from './components/Match';
+import SummonerCard from './components/SummonerCard';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Main />
+      <Footer />
     </div>
   );
 }
-
-export default App;
