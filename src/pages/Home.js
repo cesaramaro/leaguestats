@@ -1,3 +1,4 @@
+import '../index'
 import logo from '../logo.svg';
 import NavBar from "../components/NavBar";
 import SearchBar from "../components/SearchBar";
@@ -5,7 +6,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 grid-rows-3 h-screen w-screen">
+    <div className="grid grid-cols-1 grid-rows-3 h-screen w-screen" id='home'>
       <nav className=''>
         <NavBar />
       </nav>

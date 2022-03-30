@@ -13,7 +13,19 @@ export default function NavBar() {
       return () => window.removeEventListener('scroll', scrollHandler);
     }, [top]);  
     return(
-
+     
+      <header className="fixed w-full border-b-2 border-b-blue-400">
+        <div className="flex items-center">
+          <a className="pl-5" href="../pages/Home">
+            <img src={logo} className='h-10'></img>
+          </a>
+          <a className="py-3 px-5" href="../pages/Home">Home</a>
+          <a className="py-3 px-5" href="../pages/Home">About</a>
+          <a className="py-3 px-5 justify-end ml-auto" href="../pages/Home">Home</a>
+        </div>
+      </header>
+      
+    /*
     <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out border-b-2 border-b-gray-400 ${!top && 'bg-[#00142A] backdrop-blur-sm shadow-lg'}`}>
             <div className="flex h-16 md:h-20">
                 <nav className="flex">
@@ -24,6 +36,7 @@ export default function NavBar() {
                     </ul>
                 </nav>
             </div>
-    </header>
-    )
+    </header>\
+    */
+    )    
 }
