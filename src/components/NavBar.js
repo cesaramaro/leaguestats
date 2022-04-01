@@ -17,7 +17,7 @@ export default function NavBar() {
   return (
 
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
-      <div className="flex items-center h-20 rounded-bar-black">
+      <div className="flex items-center h-80 rounded-bar-black">
         <a className="h-10" href="../pages/Home">
           <LogoIco></LogoIco>
         </a>
@@ -26,7 +26,7 @@ export default function NavBar() {
       </div>
 
       <div className="flex items-center p-6 justify-end ml-auto">
-        <a className=' text-white w-10'>
+        <a className=' text-white w-40'>
           <GithubIco></GithubIco>
         </a>
       </div>
