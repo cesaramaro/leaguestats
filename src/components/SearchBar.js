@@ -9,7 +9,7 @@ import SearchIco from './icons/SearchIco.js'
 
 export default function SearchBar() {
     return (
-        <form action="/summoner" className="font-Inter text-2xl">
+        <form action="/summoner" className="flex font-Inter text-2xl justify-center">
             <div className="flex flex-row place-items-center w-640 h-80 rounded-bar-black">
                 <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold" type={"text"} for='search' placeholder="Search for Summoner..."></input>
                 <select className="focus-visible:outline-none bg-transparent font-semibold pl-6">
