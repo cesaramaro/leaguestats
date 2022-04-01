@@ -2,7 +2,7 @@ export default function SearchBar() {
     return(
         <div className="flex place-content-center w-1/2 font-Inter text-2xl">
             <form action="/summoner" >
-                <div className="flex w-640 text-white h-20 bg-black bg-opacity-80 rounded-2xl p-6">
+                <div className="flex w-640 h-20 rounded-bar-black">
                 <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold" type={"text"} for='search' placeholder="Search for Summoner..."></input>
                 <select className="focus-visible:outline-none bg-transparent font-semibold pl-6">
                     <option value={'na'}>NA</option>

@@ -1,34 +1,24 @@
-import logo from "../images/ntIco.svg"
-import github from "../images/gh.svg"
+import LogoIco from "./icons/LogoIcon.js";
+import GithubIco from "./icons/GithubIcon";
 import React, { useState, useEffect } from 'react';
 
 export default function NavBar() {
+  return (
 
-    const [top, setTop] = useState(true);
+    <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
+      <div className="flex items-center h-20 rounded-bar-black">
+        <a className="h-10" href="../pages/Home">
+          <LogoIco></LogoIco>
+        </a>
+        <a className="px-6" href="../pages/Home">Home</a>
+        <a className="" href="../pages/Home">About</a>
+      </div>
 
-    useEffect(() => {
-      const scrollHandler = () => {
-        window.pageYOffset > 10 ? setTop(false) : setTop(true)
-      };
-      window.addEventListener('scroll', scrollHandler);
-      return () => window.removeEventListener('scroll', scrollHandler);
-    }, [top]);  
-    return(
-     
-      <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
-        <div className="flex items-center h-20 bg-black bg-opacity-80 text-white rounded-2xl p-6">
-          <a className="" href="../pages/Home">
-            <img src={logo} className='h-10'></img>
-          </a>
-          <a className="px-6" href="../pages/Home">Home</a>
-          <a className="" href="../pages/Home">About</a>
-        </div>
-        
-        <div className="flex items-center p-6 justify-end ml-auto">
-          <a>
-            <img src={github} className='h-10'></img>
-          </a>
-        </div>
-      </nav>
-    )    
+      <div className="flex items-center p-6 justify-end ml-auto">
+        <a className=' text-white w-10'>
+          <GithubIco></GithubIco>
+        </a>
+      </div>
+    </nav>
+  )
 }
