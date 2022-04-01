@@ -1,7 +1,6 @@
 import HomeIco from './icons/HomeIcon.js'
 import InfoIco from './icons/InfoIcon.js'
 import GithubIco from './icons/GithubIcon.js'
-import React, { useState, useEffect } from 'react';
 
 export default function NavBar() {
     return (

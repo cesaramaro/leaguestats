@@ -1,6 +1,5 @@
 import LogoIco from "./icons/LogoIcon.js";
 import GithubIco from "./icons/GithubIcon";
-import React, { useState, useEffect } from 'react';
 
 export default function NavBar() {
   return (

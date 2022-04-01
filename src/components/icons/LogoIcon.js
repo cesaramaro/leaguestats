@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 export default function LogoIco() {
     return (
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 354 167">

@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 export default function InfoIco() {
     return (
         <svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 426.095463 425.961940">
