@@ -4,8 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
 
 @layer components{
-    .rounded-bar-black{
+    .rounded-bar-black {
         @apply bg-black bg-opacity-80 text-white rounded-2xl p-6
+    }
+    .card {
+        @apply rounded-lg py-10 px-12 bg-cover bg-gradient-to-r from-[#37008C] via-[#0F0059] to-[#00142A] shadow-lg
+    }
+    .icon {
+        @apply relative rounded-full bg-purple-300 border-4 border-purple-400 flex items-center justify-center
     }
 }
 

@@ -22,12 +22,12 @@ export default function Match(props) {
                         Set size (higher width)
                         Clean-up
             */}
-            <div className="flex rounded-lg p-10 bg-cover bg-gradient-to-r from-[#37008C] via-[#0F0059] to-[#00142A] shadow-lg">
+            <div className="flex card">
                 <div name="left-side-icons" className="flex object-middle h-auto w-auto justify-center">
-                    <div name="player-icon" className="relative rounded-lg bg-purple-300 border-4 border-purple-400 flex items-center justify-center h-32 w-32">
+                    <div name="player-icon" className="icon relative rounded-lg h-32 w-32">
                         <img className="object-cover" src={championIcon} alt=""></img>
-                        <span name="player-level" className="absolute bottom-0 -mb-5 border-4 border-purple-400 rounded-full bg-purple-200 h-10 w-10">
-                            <p className="text-center pt-1 font-bold">{level}</p>
+                        <span name="player-level" className="icon absolute bottom-0 -mb-5 h-10 w-10">
+                            <p className="text-center font-bold">{level}</p>
                         </span>
                     </div>
                 </div>
