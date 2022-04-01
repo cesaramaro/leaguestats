@@ -9,7 +9,7 @@
 
 export default function GithubIco() {
     return (
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197 167" version="1.1">
+        <svg width={'100%'} height={'100%'} aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197 167" version="1.1">
             < g transform="matrix(4.16667,0,0,4.16667,-7615.86,-5052.54)" >
                 <g transform="matrix(1,0,0,1,6.82121e-13,1167.39)">
                     <g transform="matrix(0.0481522,0,0,0.0481522,1827.32,41.1447)">
