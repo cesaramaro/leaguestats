@@ -1,6 +1,18 @@
 import LogoIco from "./icons/LogoIcon.js";
 import GithubIco from "./icons/GithubIcon";
 
+/**==============================================
+ * *                   INFO
+ * Reusable component for navigation top bar
+ * Contains Navigation Bar and Github Icon  
+ * Stays fixed to the top and takes up screen widht
+ * Contained withing a nav and with fixed h-20 height
+ * Navigation bar takes up only space needed 
+ * for its content and keeps to the left
+ * Navigation bar should follow rounded-bar
+ * Github Icon keeps to the end separated..
+ *=============================================**/
+
 export default function NavBar() {
   return (
 

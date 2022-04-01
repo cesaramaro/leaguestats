@@ -1,3 +1,12 @@
+/**======================
+ **      LogoIco
+ * Returns svg of project logo.
+ * Enables easy colorization
+ * of svg and easy readability.
+ * fill='currentColor' is 
+ * what enables colorization
+ *========================**/
+
 export default function LogoIco() {
     return (
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" fill='currentColor' viewBox="0 0 354 167">

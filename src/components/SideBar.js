@@ -2,7 +2,15 @@ import HomeIco from './icons/HomeIcon.js'
 import InfoIco from './icons/InfoIcon.js'
 import GithubIco from './icons/GithubIcon.js'
 
-export default function NavBar() {
+/**==============================================
+ * *                   INFO
+ * Reusable component for navagation sidebar  
+ * Stays fixed to the top left corner and grows down.
+ * Contained withing a nav and with fixed w-20 width
+ * Should Follow rounded-bar color can change
+ *=============================================**/
+
+export default function SideBar() {
     return (
 
         <nav className="fixed p-6 font-Inter font-semibold text-2xl">

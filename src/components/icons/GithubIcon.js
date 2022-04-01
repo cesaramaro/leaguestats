@@ -1,3 +1,12 @@
+/**======================
+ **      GithubIco
+ * Returns svg of Github logo.
+ * Enables easy colorization
+ * of svg and easy readability.
+ * fill='currentColor' is 
+ * what enables colorization
+ *========================**/
+
 export default function GithubIco() {
     return (
         <svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197 167" version="1.1">

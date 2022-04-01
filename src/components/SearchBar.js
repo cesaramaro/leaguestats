@@ -1,5 +1,12 @@
 import SearchIco from './icons/SearchIco.js'
 
+/**==============================================
+ * *                   INFO
+ * Reusable component for searchbar form.  
+ * Contained within a form and of fixed w-640 width
+ * Should Follow rounded-bar color can change
+ *=============================================**/
+
 export default function SearchBar() {
     return (
         <form action="/summoner" className="font-Inter text-2xl">

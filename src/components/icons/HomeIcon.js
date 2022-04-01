@@ -1,3 +1,12 @@
+/**======================
+ **      HomeIco
+ * Returns svg of Home icon.
+ * Enables easy colorization
+ * of svg and easy readability.
+ * fill='currentColor' is 
+ * what enables colorization
+ *========================**/
+
 export default function HomeIco() {
     return (
         <svg aria-hidden="true" focusable="false" data-prefix="fas" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.836 425.731">
