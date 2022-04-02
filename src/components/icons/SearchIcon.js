@@ -1,5 +1,5 @@
 /**======================
- **      SearchIco
+ **      SearchIcon
  * Returns svg of Search icon.
  * Enables easy colorization
  * of svg and easy readability.

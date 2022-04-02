@@ -5,6 +5,7 @@ import Match from '../components/Match';
 import SummonerCard from '../components/SummonerCard';
 import Footer from '../components/Footer';
 import React from "react";
+import NavBarWSearch from "../components/NavBarWSearch"
 
 export default function Summoner() {
 
@@ -31,21 +32,21 @@ export default function Summoner() {
       fSpell: "https://icon-library.com/images/lol-flash-icon/lol-flash-icon-4.jpg",
       primaryRune: "https://cdn.vox-cdn.com/thumbor/yBUhM1HKpSyCV7YEBFq2fcNa908=/0x0:108x108/1200x0/filters:focal(0x0:108x108)/cdn.vox-cdn.com/uploads/chorus_asset/file/9324181/8112.png",
       secondaryRune: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvignette.wikia.nocookie.net%2Fleagueoflegends%2Fimages%2F2%2F26%2FPrecision_icon.png%2Frevision%2Flatest%2Fscale-to-width-down%2F52%3Fcb%3D20170926031126&f=1&nofb=1",
-      kills: "10",
-      deaths: "10",
-      assists: "15",
+      kills: "20",
+      deaths: "50",
+      assists: "100",
       kda: "35",
-      items: 
-      [
-        {
-          item1: "https://i.postimg.cc/ZnCH1m17/moonstone.png",
-          item2: "https://i.postimg.cc/ZqHLn0ms/redemption.png",
-          item3: "https://i.postimg.cc/25rwChsB/mercurys.png",
-          item4: "",
-          item5: "",
-          item6: "",
-        },
-      ],
+      items:
+        [
+          {
+            item1: "https://i.postimg.cc/ZnCH1m17/moonstone.png",
+            item2: "https://i.postimg.cc/ZqHLn0ms/redemption.png",
+            item3: "https://i.postimg.cc/25rwChsB/mercurys.png",
+            item4: "",
+            item5: "",
+            item6: "",
+          },
+        ],
       gamemode: "One For All",
       duration: "33m 50s",
       timeAgo: "30 mins ago",
@@ -65,17 +66,17 @@ export default function Summoner() {
       deaths: "0",
       assists: "0",
       kda: "0",
-      items: 
-      [
-        {
-          item1: "https://i.postimg.cc/25rwChsB/mercurys.png",
-          item2: "",
-          item3: "",
-          item4: "",
-          item5: "",
-          item6: "",
-        },
-      ],
+      items:
+        [
+          {
+            item1: "https://i.postimg.cc/25rwChsB/mercurys.png",
+            item2: "",
+            item3: "",
+            item4: "",
+            item5: "",
+            item6: "",
+          },
+        ],
       gamemode: "Solo/Duo",
       duration: "5m 0s",
       timeAgo: "1 day ago",
@@ -95,17 +96,17 @@ export default function Summoner() {
       deaths: "5",
       assists: "13",
       kda: "30.3",
-      items: 
-      [
-        {
-          item1: "https://i.postimg.cc/JzbxwP2L/immortal.png",
-          item2: "https://i.postimg.cc/Fkb3gT1q/bloodthirster.png",
-          item3: "https://i.postimg.cc/YCcRyJ8R/lorddominiks.png",
-          item4: "https://i.postimg.cc/J72Pjyk9/phantomdancer.png",
-          item5: "",
-          item6: "",
-        },
-      ],
+      items:
+        [
+          {
+            item1: "https://i.postimg.cc/JzbxwP2L/immortal.png",
+            item2: "https://i.postimg.cc/Fkb3gT1q/bloodthirster.png",
+            item3: "https://i.postimg.cc/YCcRyJ8R/lorddominiks.png",
+            item4: "https://i.postimg.cc/J72Pjyk9/phantomdancer.png",
+            item5: "",
+            item6: "",
+          },
+        ],
       gamemode: "Draft Pick",
       duration: "50m 13s",
       timeAgo: "3 days ago",
@@ -118,14 +119,11 @@ export default function Summoner() {
 
   return (
     <div className="">
-      <SideBar />
-        <div className="flex fixed w-screen justify-center mt-6 z-10">
-            <SearchBar />
-        </div>
-        <div className="flex flex-row justify-center gap-6 pt-32">
-            <SummonerCard {...summoner}/>
-            <div className="flex flex-col gap-6">{matches.map(match => <Match {...match}/>)}</div>
-        </div>
+      <NavBarWSearch></NavBarWSearch>
+      <div className="flex flex-row justify-center gap-6 pt-32">
+        <SummonerCard {...summoner} />
+        <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} />)}</div>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,9 @@
 import test from '../images/vex-bg.jpg'
-import ClockIco from './icons/Clock'
+import ClockIcon from './icons/ClockIcon'
+import MinionIcon from './icons/MinionIcon'
+import DamageIcon from './icons/DamageIcon'
+import KpIcon from './icons/KpIcon'
+import GoldIcon from './icons/GoldIcon'
 
 export default function Match(props) {
 
@@ -30,7 +34,7 @@ export default function Match(props) {
                         Set size (higher width)
                         Clean-up
             */}
-            <div className="flex card h-150 w-700 center gap-6 text-gray-200 font-semibold">
+            <div className="flex card h-150 w-700 center gap-4 text-gray-200 font-semibold">
                 {/* Champion Icon and Level */}
                 <div name="left-side-icons" className="h-auto w-1/6 justify-left">
                     <div name="player-icon" className="icon border-0 w-100 h-100">
@@ -41,7 +45,7 @@ export default function Match(props) {
                     </div>
                 </div>
 
-                <div className='flex w-1/6'>
+                <div className='flex 1/6'>
                     {/* Summoner Spells */}
                     <div className="flex flex-col justify-center gap-1 w-max">
                         <span className="flex h-30 rounded-lg overflow-hidden">
@@ -71,32 +75,44 @@ export default function Match(props) {
                 </div>
 
                 { /* Item set should be a component and each item should be a separate component within the parent */}
-                <div className='w-2/6'>
-                <div className="flex flex-col justify-center w-max">
-                    <div className="flex justify-between gap-1">
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item1} alt=""></img></span></div>
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item2} alt=""></img></span></div>
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item3} alt=""></img></span></div>
+                <div className=' center'>
+                    <div className="flex flex-col justify-center w-max">
+                        <div className="flex justify-between gap-1">
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item1} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item2} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item3} alt=""></img></span></div>
+                        </div>
+                        <div className="flex justify-between gap-1 pt-1 w-max">
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item4} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item5} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item6} alt=""></img></span></div>
+                        </div>
                     </div>
-                    <div className="flex justify-between gap-1 pt-1 w-max">
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item4} alt=""></img></span></div>
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item5} alt=""></img></span></div>
-                        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item6} alt=""></img></span></div>
-                    </div>
-                </div>
                 </div>
 
                 <div className="flex flex-col justify-center text-xs w-1/6">
-                    <p className="flex text-blue-300">{cs} CS</p>
-                    <p className="flex text-yellow-300">{gold} gold</p>
-                    <p className="flex text-red-400">{damage} dmg</p>
-                    <p className="flex text-amber-500">{kp}% kp</p>
+                    <p className="flex text-blue-300">
+                        <span className='h-3 center pr-1'> <MinionIcon /> </span>
+                        {cs} CS
+                    </p>
+                    <p className="flex text-yellow-300">
+                        <span className='h-3 center pr-1'> <GoldIcon /> </span>
+                        {gold} gold
+                    </p>
+                    <p className="flex text-red-400">
+                        <span className='h-3 center pr-1'> <DamageIcon /> </span>
+                        {damage} dmg
+                    </p>
+                    <p className="flex text-amber-500">
+                        <span className='h-3 center pr-1'> <KpIcon /> </span>
+                        {kp}% kp
+                    </p>
                 </div>
 
-                <div className="flex flex-col justify-center text-sm w-1/6 center">
-                    <a className='w-40'>
-                        <ClockIco />
-                    </a>
+                <div className="flex flex-col place-items-center text-sm w-1/6 gap-1">
+                    <div className='w-30'>
+                        <ClockIcon />
+                    </div>
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>
                 </div>

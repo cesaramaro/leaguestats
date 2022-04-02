@@ -5,7 +5,8 @@ import Home from './pages/Home';
 import Summoner from './pages/Summoner';
 
 ReactDOM.render(
-  <Home />,
+
+  <Summoner></Summoner>,
   document.getElementById('root')
 );
 
