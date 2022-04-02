@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './pages/Home';
 import Summoner from './pages/Summoner';
-import TestPage from "./pages/TestPage";
 
 ReactDOM.render(
-  <TestPage />,
+  <Home />,
   document.getElementById('root')
 );
 

@@ -15,7 +15,6 @@ import GithubIco from "./icons/GithubIcon";
 
 export default function NavBar() {
   return (
-
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
       <div className="flex items-center h-80 rounded-bar-black">
         <a className="h-10" href="../pages/Home">
@@ -26,7 +25,7 @@ export default function NavBar() {
       </div>
 
       <div className="flex items-center p-6 justify-end ml-auto">
-        <a className=' text-white w-40'>
+        <a className=' text-white w-40' href="https://github.com/cesaramaro/leaguestats">
           <GithubIco></GithubIco>
         </a>
       </div>

@@ -1,4 +1,5 @@
 import test from '../images/vex-bg.jpg'
+import ClockIco from './icons/Clock'
 
 export default function Match(props) {
 
@@ -13,6 +14,13 @@ export default function Match(props) {
     const assists = props.assists
     const kda = props.kda
     const items = props.items
+    const cs = props.cs
+    const gold = props.gold
+    const damage = props.damage
+    const duration = props.duration
+    const timeAgo = props.timeAgo
+    const gamemode = props.gamemode
+    const kp = props.kp
 
     return (
         <div className="">
@@ -22,39 +30,49 @@ export default function Match(props) {
                         Set size (higher width)
                         Clean-up
             */}
-            <div className="flex rounded-bar-black h-150 w-650">
-                <div name="left-side-icons" className="flex object-middle h-auto w-auto justify-center">
-                    <div name="player-icon" className="icon relative rounded-lg w-100">
-                        <img className="object-cover" src={championIcon} alt=""></img>
-                        <span name="player-level" className="icon absolute bottom-0 -mb-5 h-25 w-25">
-                            <p className="text-center font-bold">{level}</p>
+            <div className="flex card h-150 w-700 center gap-6 text-gray-200 font-semibold">
+                {/* Champion Icon and Level */}
+                <div name="left-side-icons" className="h-auto w-1/6 justify-left">
+                    <div name="player-icon" className="icon border-0 w-100 h-100">
+                        <img className="object-cover rounded-2xl border-4 border-purple-400" src={championIcon} alt=""></img>
+                        <span name="player-level" className="icon absolute -bottom-3 h-35 w-35">
+                            <p className="text-center font-bold text-black">{level}</p>
                         </span>
                     </div>
                 </div>
-                <div className="flex flex-col justify-center gap-1 pl-5 w-max">
-                    <span className="flex h-30 rounded-lg overflow-hidden">
-                        <img className="object-cover" src={dSpell} alt=""></img>
-                    </span>
-                    <span className="flex h-30 rounded-lg overflow-hidden">
-                        <img className="object-cover" src={fSpell} alt=""></img>
-                    </span>
+
+                <div className='flex w-1/6'>
+                    {/* Summoner Spells */}
+                    <div className="flex flex-col justify-center gap-1 w-max">
+                        <span className="flex h-30 rounded-lg overflow-hidden">
+                            <img className="object-cover" src={dSpell} alt=""></img>
+                        </span>
+                        <span className="flex h-30 rounded-lg overflow-hidden">
+                            <img className="object-cover" src={fSpell} alt=""></img>
+                        </span>
+                    </div>
+
+                    {/* Runes */}
+                    <div className="flex flex-col justify-center pl-1 w-max">
+                        <span className="flex h-20 rounded-lg overflow-hidden">
+                            <img className="object-cover" src={primaryRune} alt=""></img>
+                        </span>
+                        <span className="flex h-20 rounded-lg overflow-hidden">
+                            <img className="object-cover" src={secondaryRune} alt=""></img>
+                        </span>
+                    </div>
                 </div>
 
-                <div className="flex flex-col justify-center pl-1 w-max">
-                    <span className="flex h-20 rounded-lg overflow-hidden">
-                        <img className="object-cover" src={primaryRune} alt=""></img>
-                    </span>
-                    <span className="flex h-20 rounded-lg overflow-hidden">
-                        <img className="object-cover" src={secondaryRune} alt=""></img>
-                    </span>
+                {/* KDA */}
+                <div className="flex w-2/6 flex-col justify-center center">
+                    <p className="">{gamemode}</p>
+                    <p className="flex mb-1 text-2xl font-bold">{kills}/{deaths}/{assists}</p>
+                    <p className="flex mb-1 text-1xl">{kda} KDA</p>
                 </div>
 
-                <div className="flex flex-col justify-center pl-5 w-max text-gray-300">
-                    <p className="flex mb-1 text-2xl font-bold">{kills} / {deaths} / {assists}</p>
-                    <p className="flex mb-1 text-1xl font-bold">{kda} KDA</p>
-                </div>
                 { /* Item set should be a component and each item should be a separate component within the parent */}
-                <div className="flex flex-col justify-center pl-5 w-max">
+                <div className='w-2/6'>
+                <div className="flex flex-col justify-center w-max">
                     <div className="flex justify-between gap-1">
                         <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item1} alt=""></img></span></div>
                         <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item2} alt=""></img></span></div>
@@ -66,10 +84,21 @@ export default function Match(props) {
                         <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item6} alt=""></img></span></div>
                     </div>
                 </div>
-                <div className="flex flex-col justify-center pl-5 w-max text-gray-300">
-                    <p className="flex mb-1 font-bold">Game mode</p>
-                    <p className="flex mb-1 font-bold">Duration</p>
-                    <p className="flex mb-1 font-bold top-0 right-0">Time ago</p>
+                </div>
+
+                <div className="flex flex-col justify-center text-xs w-1/6">
+                    <p className="flex text-blue-300">{cs} CS</p>
+                    <p className="flex text-yellow-300">{gold} gold</p>
+                    <p className="flex text-red-400">{damage} dmg</p>
+                    <p className="flex text-amber-500">{kp}% kp</p>
+                </div>
+
+                <div className="flex flex-col justify-center text-sm w-1/6 center">
+                    <a className='w-40'>
+                        <ClockIco />
+                    </a>
+                    <p className="flex">{duration}</p>
+                    <p className="flex text-xs">{timeAgo}</p>
                 </div>
             </div>
         </div>

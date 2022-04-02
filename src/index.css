@@ -1,25 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @layer components{
     .rounded-bar-black {
         @apply bg-black bg-opacity-80 text-white rounded-2xl p-6
     }
     .card {
-        @apply rounded-lg py-10 px-12 bg-cover bg-gradient-to-r from-[#37008C] via-[#0F0059] to-[#00142A] shadow-lg
+        @apply bg-black opacity-80 text-white rounded-2xl p-6 shadow-lg
     }
     .icon {
         @apply relative rounded-full bg-purple-300 border-4 border-purple-400 flex items-center justify-center
     }
+    .center {
+        @apply bg-center snap-center self-center text-center items-center origin-center object-center justify-center content-center place-self-center place-items-center justify-self-center place-content-center justify-items-center
+    }
 }
 
 body {
-    background-image: url(images/beemo.jpg);
+    background-image: url(images/ahri.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
 
 }
 
