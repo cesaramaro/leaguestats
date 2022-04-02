@@ -118,8 +118,8 @@ export default function Summoner() {
   ]
 
   return (
-    <div className="">
-      <NavBarWSearch></NavBarWSearch>
+    <div className="min-w-1072">
+      <NavBarWSearch />
       <div className="flex flex-row justify-center gap-6 pt-32">
         <SummonerCard {...summoner} />
         <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} />)}</div>

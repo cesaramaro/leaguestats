@@ -14,7 +14,7 @@ import SearchBar from './SearchBar.js'
 
 function IconNavBar() {
     return (
-        <nav className="flex font-Inter font-black text-2xl gap-6 card h-80">
+        <nav className="flex font-Inter font-black text-2xl card h-80 justify-between">
             < p className="text-white text-center" > nt. </p >
             <a className=' text-white w-30' href="">
                 <HomeIcon />
@@ -32,11 +32,11 @@ function IconNavBar() {
 export default function NavBarWSearch() {
     return (
 
-        <header className='fixed flex w-screen p-6 gap-6'>
-            < div className="flex" >
+        <header className='fixed flex place-content-center w-screen p-6 gap-6 min-w-1072'>
+            < div className="w-300" >
                 <IconNavBar />
             </div >
-            <div className=' mx-auto'>
+            <div className='w-700'>
                 <SearchBar />
             </div>
         </header >

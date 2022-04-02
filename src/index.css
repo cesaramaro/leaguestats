@@ -13,6 +13,13 @@
     .center {
         @apply bg-center snap-center self-center text-center items-center origin-center object-center justify-center content-center place-self-center place-items-center justify-self-center place-content-center justify-items-center
     }
+    .min-w-1072{
+        @apply min-w-[67rem]
+    }
+
+    .max-w-1072{
+        @apply max-w-[67rem]
+    }
 }
 
 body {

@@ -11,7 +11,7 @@ export default function Home() {
       </header>
       <div className='flex flex-col row-start-2 justify-center place-items-center'>
         <p className='font-Inter text-8xl font-black text-white pb-6'>nerf this.</p>
-        <SearchBar />
+        <span className='w-640'> <SearchBar /> </span>
       </div>
       <footer className='flex row-start-3 items-end place-content-center p-5'>
         <Footer />
