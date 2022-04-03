@@ -118,12 +118,23 @@ export default function Summoner() {
   ]
 
   return (
-    <div className="min-w-1072">
-      <NavBarWSearch />
-      <div className="flex flex-row justify-center gap-6 pt-32">
+    <div>
+      <SideBar />
+      <header className="fixed flex w-screen p-6 place-content-center">
+        <span className='w-700'> <SearchBar /> </span>
+      </header>
+
+      < div className="flex flex-row justify-center gap-6 pt-32" >
         <SummonerCard {...summoner} />
         <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} />)}</div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
+
+
+{/* for navbar with search
+
+<div className="min-w-1072">
+          <NavBarWSearch />
+*/}

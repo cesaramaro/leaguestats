@@ -1,5 +1,5 @@
 import rankedIcon from "../public/images/challenger.png";
-//import { ReactFitty } from "react-fitty";
+import useTextFit from "use-text-fit";
 
 export default function SummonerCard(props) {
 
@@ -27,6 +27,10 @@ export default function SummonerCard(props) {
                     </div>
                 </div>
                 {/* User and rank */}
+                <div className="font-bold center">{name}</div>
+
+                {/* ​‌‍‌FITTY DONT WORK HERE​ */}
+
                 {/* <ReactFitty maxSize={80} className="font-bold center">{name}</ReactFitty> */}
                 <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center">
                     <p className="text-purple-400">{rank} {division}</p>
@@ -37,7 +41,7 @@ export default function SummonerCard(props) {
                     <img className="object-cover w-44" src={rankedIcon} alt=""></img>
                 </div>
 
-                { /* Win rate */ }
+                { /* Win rate */}
                 <div className="flex flex-col mb-1 text-2xl justify-center text-center text-gray-300">
                     <p>{winrate}% winrate</p>
                     <p>{wins}W / {losses}L</p>

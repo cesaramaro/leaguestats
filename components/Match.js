@@ -1,3 +1,9 @@
+import MinionIcon from '../public/icons/MinionIcon.svg'
+import GoldIcon from '../public/icons/GoldIcon.svg'
+import DamageIcon from '../public/icons/DamageIcon.svg'
+import KpIcon from '../public/icons/KpIcon.svg'
+import ClockIcon from '../public/icons/ClockIcon.svg'
+
 export default function Match(props) {
 
     const championIcon = props.champion
@@ -85,26 +91,26 @@ export default function Match(props) {
 
                 <div className="flex flex-col justify-center text-xs w-1/6">
                     <p className="flex text-blue-300">
-                        <span className='h-3 center pr-1'> MinionIcon </span>
+                        <span className='h-3 center pr-1'> <MinionIcon height='100%' /> </span>
                         {cs} CS
                     </p>
                     <p className="flex text-yellow-300">
-                        <span className='h-3 center pr-1'> GoldIcon </span>
+                        <span className='h-3 center pr-1'> <GoldIcon height='100%' /> </span>
                         {gold} gold
                     </p>
                     <p className="flex text-red-400">
-                        <span className='h-3 center pr-1'> DamageIcon </span>
+                        <span className='h-3 center pr-1'> <DamageIcon height='100%' /> </span>
                         {damage} dmg
                     </p>
                     <p className="flex text-amber-500">
-                        <span className='h-3 center pr-1'> KPIcon </span>
+                        <span className='h-3 center pr-1'> <KpIcon height='100%' /> </span>
                         {kp}% kp
                     </p>
                 </div>
 
                 <div className="flex flex-col place-items-center text-sm w-1/6 gap-1">
                     <div className='w-30'>
-                        ClockIcon
+                        <ClockIcon height='100%' />
                     </div>
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>
