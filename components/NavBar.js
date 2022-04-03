@@ -1,3 +1,8 @@
+import Link from 'next/link'
+import LogoIcon from "../public/icons/LogoIcon.svg"
+import SearchIcon from "../public/icons/SearchIcon.svg"
+import GitHub from '../public/icons/GithubIcon.svg'
+
 /**==============================================
  * *                   INFO
  * Reusable component for navigation top bar
@@ -14,16 +19,22 @@ export default function NavBar() {
   return (
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
       <div className="flex items-center h-80 card">
-        <a className="h-10" href="../pages/Home">
-          Logo
-        </a>
-        <a className="px-6" href="../pages/Home">Home</a>
-        <a className="" href="../pages/Home">About</a>
+        <Link href={'/'}>
+          <a className="h-10">
+            <LogoIcon height='100%' />
+          </a>
+        </Link>
+        <Link href={'/'}>
+          <a className="px-6"> Home </a>
+        </Link>
+        <Link href={'/about'}>
+          <a className="" href="../pages/Home"> About </a>
+        </Link>
       </div>
 
       <div className="flex items-center p-6 justify-end ml-auto">
         <a className=' text-white w-40' href="https://github.com/cesaramaro/leaguestats">
-          GitHub
+          <GitHub height='100%' />
         </a>
       </div>
     </nav>
