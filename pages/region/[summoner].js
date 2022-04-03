@@ -6,15 +6,39 @@ import SummonerCard from '../../components/SummonerCard';
 import Footer from '../../components/Footer';
 import React from "react";
 import NavBarWSearch from "../../components/NavBarWSearch"
+import { useState } from "react";
+import { getSummonerData } from '../api/region/[summoner]'
 
-export default function Summoner() {
+export async function getServerSideProps(context) {
+  const summonerData = await getSummonerData(context.params.summoner)
+
+  if (!summonerData) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
+  return {
+    props: {
+      summonerData
+    }
+  }
+}
+
+export default function Summoner( { summonerData }) {
+  let data = summonerData
+  const { results: defaultResults = [] } = summonerData;
+  const [results, updateResults] = useState(defaultResults)
+  const [ user, setSummoner ] = useState([])
 
   { /* Testing purposes - Will eventually connect with API in a similar way */ }
   const summoner = {
-    name: "Taylor Swift",
-    level: "999",
+    name: data.name,
+    level: data.summonerLevel,
     icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fv2qx9a5ekzt11.jpg&f=1&nofb=1",
-    rank: "Grandmaster",
+    rank: data.id,
     division: "III",
     lp: "50",
     winrate: "100",
