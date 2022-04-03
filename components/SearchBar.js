@@ -1,5 +1,3 @@
-import SearchIcon from './icons/SearchIcon.js'
-
 /**==============================================
  * *                   INFO
  * Reusable component for searchbar form.  
@@ -20,7 +18,7 @@ export default function SearchBar() {
                     <option value={'na'}>NA</option>
                 </select>
                 <button className='pl-6 h-6' type="submit" name='search'>
-                    <SearchIcon />
+                    SearchIcon
                 </button>
             </div>
         </form>

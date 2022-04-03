@@ -1,5 +1,5 @@
 {
-  "name": "Nerf-This",
+  "name": "nerf-this",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.1.4",
+    "next": "^12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },

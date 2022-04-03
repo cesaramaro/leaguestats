@@ -1,6 +1,3 @@
-import LogoIcon from "./icons/LogoIcon.js";
-import GithubIcon from "./icons/GithubIcon";
-
 /**==============================================
  * *                   INFO
  * Reusable component for navigation top bar
@@ -18,7 +15,7 @@ export default function NavBar() {
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
       <div className="flex items-center h-80 card">
         <a className="h-10" href="../pages/Home">
-          <svg href=""></svg>
+          Logo
         </a>
         <a className="px-6" href="../pages/Home">Home</a>
         <a className="" href="../pages/Home">About</a>
@@ -26,7 +23,7 @@ export default function NavBar() {
 
       <div className="flex items-center p-6 justify-end ml-auto">
         <a className=' text-white w-40' href="https://github.com/cesaramaro/leaguestats">
-          <GithubIcon />
+          GitHub
         </a>
       </div>
     </nav>

@@ -1,6 +1,3 @@
-import HomeIcon from './icons/HomeIcon.js'
-import InfoIcon from './icons/InfoIcon.js'
-import GithubIcon from './icons/GithubIcon.js'
 
 /**==============================================
  * *                   INFO
@@ -17,13 +14,13 @@ export default function SideBar() {
             <div className="flex flex-col place-content-center card w-80">
                 <p className="text-white text-center"> nt. </p>
                 <a className=' text-white pt-6' href="">
-                    <HomeIcon />
+                    HomeIcon
                 </a>
                 <a className=' text-white pt-6' href="">
-                    <InfoIcon />
+                    InfoIcon
                 </a>
                 <a className="text-white pt-6" href="">
-                    <GithubIcon />
+                    GitHubIcon
                 </a>
             </div>
         </nav>

@@ -1,6 +1,4 @@
-import HomeIcon from './icons/HomeIcon.js'
-import InfoIcon from './icons/InfoIcon.js'
-import GithubIcon from './icons/GithubIcon.js'
+
 import SearchBar from './SearchBar.js'
 
 /**==============================================
@@ -17,13 +15,13 @@ function IconNavBar() {
         <nav className="flex font-Inter font-black text-2xl card h-80 justify-between">
             < p className="text-white text-center" > nt. </p >
             <a className=' text-white w-30' href="">
-                <HomeIcon />
+                HomeIcon
             </a>
             <a className=' text-white w-30' href="">
-                <InfoIcon />
+                InfoIcon
             </a>
             <a className="text-white w-30" href="">
-                <GithubIcon />
+                GitHubIcon
             </a>
         </nav >);
 }
@@ -34,10 +32,10 @@ export default function NavBarWSearch() {
 
         <header className='fixed flex place-content-center w-screen p-6 gap-6 min-w-1072'>
             < div className="w-300" >
-                <IconNavBar />
+                IconNavBar
             </div >
             <div className='w-700'>
-                <SearchBar />
+                SearchBar
             </div>
         </header >
     )

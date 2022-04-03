@@ -1,5 +1,5 @@
-import rankedIcon from "../images/challenger.png";
-import { ReactFitty } from "react-fitty";
+import rankedIcon from "../public/images/challenger.png";
+//import { ReactFitty } from "react-fitty";
 
 export default function SummonerCard(props) {
 
@@ -27,7 +27,7 @@ export default function SummonerCard(props) {
                     </div>
                 </div>
                 {/* User and rank */}
-                <ReactFitty maxSize={80} className="font-bold center">{name}</ReactFitty>
+                {/* <ReactFitty maxSize={80} className="font-bold center">{name}</ReactFitty> */}
                 <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center">
                     <p className="text-purple-400">{rank} {division}</p>
                     <p className="text-purple-400">{lp} LP</p>

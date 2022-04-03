@@ -1,10 +1,3 @@
-import test from '../images/vex-bg.jpg'
-import ClockIcon from './icons/ClockIcon'
-import MinionIcon from './icons/MinionIcon'
-import DamageIcon from './icons/DamageIcon'
-import KpIcon from './icons/KpIcon'
-import GoldIcon from './icons/GoldIcon'
-
 export default function Match(props) {
 
     const championIcon = props.champion
@@ -92,26 +85,26 @@ export default function Match(props) {
 
                 <div className="flex flex-col justify-center text-xs w-1/6">
                     <p className="flex text-blue-300">
-                        <span className='h-3 center pr-1'> <MinionIcon /> </span>
+                        <span className='h-3 center pr-1'> MinionIcon </span>
                         {cs} CS
                     </p>
                     <p className="flex text-yellow-300">
-                        <span className='h-3 center pr-1'> <GoldIcon /> </span>
+                        <span className='h-3 center pr-1'> GoldIcon </span>
                         {gold} gold
                     </p>
                     <p className="flex text-red-400">
-                        <span className='h-3 center pr-1'> <DamageIcon /> </span>
+                        <span className='h-3 center pr-1'> DamageIcon </span>
                         {damage} dmg
                     </p>
                     <p className="flex text-amber-500">
-                        <span className='h-3 center pr-1'> <KpIcon /> </span>
+                        <span className='h-3 center pr-1'> KPIcon </span>
                         {kp}% kp
                     </p>
                 </div>
 
                 <div className="flex flex-col place-items-center text-sm w-1/6 gap-1">
                     <div className='w-30'>
-                        <ClockIcon />
+                        ClockIcon
                     </div>
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>

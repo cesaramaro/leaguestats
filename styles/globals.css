@@ -4,7 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* @layer components{
+@layer components{
     .card {
         @apply bg-black bg-opacity-80 text-white rounded-2xl p-6
     }
@@ -21,4 +21,21 @@
     .max-w-1072{
         @apply max-w-[67rem]
     }
-} */
+
+}
+
+body {
+    background-image: url(../public/images/ahri.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+}
+
+#root {
+    background: rgba(0, 0, 0, 0.40);
+    overflow: hidden;
+    height: 100%;
+    z-index: 2;
+}
