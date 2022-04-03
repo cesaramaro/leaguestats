@@ -1,11 +1,11 @@
-import SideBar from "../components/SideBar";
-import SearchBar from "../components/SearchBar";
-import Champions from '../components/Champions';
-import Match from '../components/Match';
-import SummonerCard from '../components/SummonerCard';
-import Footer from '../components/Footer';
+import SideBar from "../../components/SideBar";
+import SearchBar from "../../components/SearchBar";
+import Champions from '../../components/Champions';
+import Match from '../../components/Match';
+import SummonerCard from '../../components/SummonerCard';
+import Footer from '../../components/Footer';
 import React from "react";
-import NavBarWSearch from "../components/NavBarWSearch"
+import NavBarWSearch from "../../components/NavBarWSearch"
 
 export default function Summoner() {
 
