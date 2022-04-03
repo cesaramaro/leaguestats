@@ -18,7 +18,7 @@ export default function NavBar() {
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
       <div className="flex items-center h-80 card">
         <a className="h-10" href="../pages/Home">
-          <LogoIcon />
+          <svg href=""></svg>
         </a>
         <a className="px-6" href="../pages/Home">Home</a>
         <a className="" href="../pages/Home">About</a>

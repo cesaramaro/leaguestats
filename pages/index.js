@@ -1,12 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Home from './pages/Home';
-import Summoner from './pages/Summoner';
+import Head from "next/head";
+import Image from "next/image";
+import Styles from '../styles/home.module.css';
 
-ReactDOM.render(
+export default function Home() {
 
-  <Summoner></Summoner>,
-  document.getElementById('root')
-);
+  return (
 
+    <div>
+      <Head>
+        <title> Nerf This. </title>
+        <meta name="description" content="League of Legends Stats" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className=" text-red-600 font-bold">
+        Hello
+      </div>
+
+    </div>
+
+  )
+
+}
