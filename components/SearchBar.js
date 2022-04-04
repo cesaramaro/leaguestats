@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import SearchIcon from '../public/icons/SearchIcon.svg'
+import Card from './card'
 
 /**==============================================
  * *                   INFO
@@ -8,10 +9,12 @@ import SearchIcon from '../public/icons/SearchIcon.svg'
  * Should Follow .card color can change
  *=============================================**/
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+
     return (
         <form action="/summoner" className="flex font-Inter text-2xl justify-center">
-            <div className="flex flex-row place-items-center w-full h-80 card gap-6">
+
+            <Card className="flex flex-row place-items-center w-full h-80 gap-6" color={props.color}>
                 <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold" type={"text"} htmlFor='search' placeholder="Search for Summoner..."></input>
                 <select className="focus-visible:outline-none bg-transparent font-semibold">
                     <option value={'na'}>NA</option>
@@ -25,7 +28,7 @@ export default function SearchBar() {
                         <SearchIcon height='100%' />
                     </button>
                 </Link>
-            </div>
+            </Card>
         </form>
     )
 }

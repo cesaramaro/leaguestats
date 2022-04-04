@@ -1,5 +1,6 @@
 import Script from "next/script";
 import rankedIcon from "../public/images/challenger.png";
+import Card from "./card";
 
 export default function SummonerCard(props) {
 
@@ -14,14 +15,18 @@ export default function SummonerCard(props) {
     const wins = props.wins
     const losses = props.losses
     const fontSizeGameId = props.fontSize
+    const color = props.color
 
     // * creates correct string for fontSize style
-    const style = { fontSize: String(fontSizeGameId) + 'px' }
+    const style = {
+        fontSize: { fontSize: String(fontSizeGameId) + 'px' },
+        bgColor: { backgroundColor: String(props.color) + 'CC' }
+    }
 
     return (
         <div className="font-semibold">
             {/* Profile icon, level icon, username, rank icon, rank+division, LP, winrate */}
-            <div className="card flex flex-col justify-between center p-12 w-300">
+            <Card className='flex flex-col justify-between center p-12 w-300' color={color}>
                 <div name="icon-lvl" className="flex h-fill w-fill mb-2 justify-center">
                     <div name="player-icon" className="icon w-150">
                         <img className="object-cover rounded-full" src={icon} alt=""></img>
@@ -31,7 +36,7 @@ export default function SummonerCard(props) {
                     </div>
                 </div>
                 {/* User and rank */}
-                <span className="flex w-full place-content-center" id='summoner-name' style={style}>
+                <span className="flex w-full place-content-center" id='summoner-name' style={style.fontSize}>
                     {name}
                 </span>
 
@@ -49,7 +54,7 @@ export default function SummonerCard(props) {
                     <p>{winrate}% winrate</p>
                     <p>{wins}W / {losses}L</p>
                 </div>
-            </div >
+            </Card>
         </div >
     )
 }

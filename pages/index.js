@@ -7,6 +7,9 @@ import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 
 export default function Home() {
+
+  const color = '#000000'
+
   return (
     <div>
       <Head>
@@ -18,11 +21,11 @@ export default function Home() {
       {/* ​‌‌‍​‌‍‌𝗛𝗢𝗠𝗘​ */}
       <div className="grid grid-cols-1 grid-rows-3 h-screen w-screen min-h-screen overflow-hidden" id='home'>
         <header className=''>
-          <NavBar />
+          <NavBar color={color} />
         </header>
         <div className='flex flex-col row-start-2 justify-center place-items-center'>
           <p className='font-Inter text-8xl font-black text-white pb-6'>nerf this.</p>
-          <span className='w-640'> <SearchBar /> </span>
+          <span className='w-640'> <SearchBar color={color} /> </span>
         </div>
         <footer className='flex row-start-3 items-end place-content-center p-5'>
           <Footer />

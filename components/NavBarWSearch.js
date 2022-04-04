@@ -13,7 +13,10 @@ import InfoIcon from '../public/icons/InfoIcon.svg'
  *=============================================**/
 
 
-function IconNavBar() {
+function IconNavBar(props) {
+
+    const style = { backgroundColor: String(props.color) + 'CC' }
+
     return (
         <nav className="flex font-Inter font-black text-2xl card h-80 justify-between">
             < p className="text-white text-center" > nt. </p >
@@ -30,7 +33,10 @@ function IconNavBar() {
 }
 
 
-export default function NavBarWSearch() {
+export default function NavBarWSearch(props) {
+
+    const style = { backgroundColor: String(props.color) + 'CC' }
+
     return (
 
         <header className='fixed flex place-content-center w-screen p-6 gap-6 min-w-1072'>

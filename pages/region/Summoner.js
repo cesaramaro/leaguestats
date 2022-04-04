@@ -7,6 +7,8 @@ import Footer from '../../components/Footer';
 import React from "react";
 import NavBarWSearch from "../../components/NavBarWSearch"
 import { fitGameId, getGameId } from "../../lib/fitGameId";
+import Color from "color-thief-react";
+import Image from "next/image";
 
 export async function getStaticProps() {
 
@@ -46,6 +48,7 @@ export default function Summoner({ summonerInfo }) {
     wins: "5",
     losses: "0",
     fontSize: summonerInfo.gameIdFontSize,
+    color: ''
   }
 
   { /* Testing purposes - Will access API to get information and icons based on names */ }
@@ -144,17 +147,26 @@ export default function Summoner({ summonerInfo }) {
   ]
 
   return (
-    <div>
-      <SideBar />
-      <header className="fixed flex w-screen p-6 place-content-center">
-        <span className='w-700'> <SearchBar /> </span>
-      </header>
 
-      < div className="flex flex-row justify-center gap-6 pt-32" >
-        <SummonerCard {...summoner} />
-        <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} />)}</div>
-      </div >
-    </div >
+    <Color src="../../images/ahri.jpg" format="hex" crossOrigin="anonymous">
+      {({ data, loading, error }) => (
+
+        <div>
+
+          <SideBar color={data} />
+          <header className="fixed flex w-screen p-6 place-content-center">
+            <span className='w-700'> <SearchBar color={data} /> </span>
+          </header>
+
+          <div className="flex flex-row justify-center gap-6 pt-32" >
+            <SummonerCard {...summoner} color={data} />
+            <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} color={data} />)}</div>
+          </div >
+        </div >
+
+      )}
+    </Color>
+
   );
 }
 

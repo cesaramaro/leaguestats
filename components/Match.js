@@ -3,6 +3,7 @@ import GoldIcon from '../public/icons/GoldIcon.svg'
 import DamageIcon from '../public/icons/DamageIcon.svg'
 import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
+import Card from './card'
 
 export default function Match(props) {
 
@@ -24,6 +25,7 @@ export default function Match(props) {
     const timeAgo = props.timeAgo
     const gamemode = props.gamemode
     const kp = props.kp
+    const color = props.color
 
     return (
         <div className="">
@@ -33,7 +35,8 @@ export default function Match(props) {
                         Set size (higher width)
                         Clean-up
             */}
-            <div className="flex card h-150 w-700 center gap-4 text-gray-200 font-semibold">
+
+            <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold" color={color}>
                 {/* Champion Icon and Level */}
                 <div name="left-side-icons" className="h-auto w-1/6 justify-left">
                     <div name="player-icon" className="icon border-0 w-100 h-100">
@@ -115,7 +118,7 @@ export default function Match(props) {
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>
                 </div>
-            </div>
+            </Card>
         </div>
     )
 }
