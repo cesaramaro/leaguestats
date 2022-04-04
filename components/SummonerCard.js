@@ -1,5 +1,5 @@
+import Script from "next/script";
 import rankedIcon from "../public/images/challenger.png";
-import useTextFit from "use-text-fit";
 
 export default function SummonerCard(props) {
 
@@ -13,6 +13,10 @@ export default function SummonerCard(props) {
     const winrate = props.winrate
     const wins = props.wins
     const losses = props.losses
+    const fontSizeGameId = props.fontSize
+
+    // * creates correct string for fontSize style
+    const style = { fontSize: String(fontSizeGameId) + 'px' }
 
     return (
         <div className="font-semibold">
@@ -27,11 +31,10 @@ export default function SummonerCard(props) {
                     </div>
                 </div>
                 {/* User and rank */}
-                <div className="font-bold center">{name}</div>
+                <span className="flex w-full place-content-center" id='summoner-name' style={style}>
+                    {name}
+                </span>
 
-                {/* ​‌‍‌FITTY DONT WORK HERE​ */}
-
-                {/* <ReactFitty maxSize={80} className="font-bold center">{name}</ReactFitty> */}
                 <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center">
                     <p className="text-purple-400">{rank} {division}</p>
                     <p className="text-purple-400">{lp} LP</p>
@@ -46,7 +49,7 @@ export default function SummonerCard(props) {
                     <p>{winrate}% winrate</p>
                     <p>{wins}W / {losses}L</p>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

@@ -6,12 +6,37 @@ import SummonerCard from '../../components/SummonerCard';
 import Footer from '../../components/Footer';
 import React from "react";
 import NavBarWSearch from "../../components/NavBarWSearch"
+import { fitGameId, getGameId } from "../../lib/fitGameId";
 
-export default function Summoner() {
+export async function getStaticProps() {
+
+  //* ideally here we would just
+  // ^ const summonerData = getSummonerData('Summoner') and pass that ahead to the page as a prop
+
+  // * created variables for summoner info which asks backend for information information
+  var gameId = getGameId()
+  var gameIdFontSize = fitGameId(gameId)
+
+  //* creates summoner info 
+  const summonerInfo = {
+    gameId: gameId,
+    gameIdFontSize: gameIdFontSize
+  }
+
+  // * returns summonerInfo with
+  return {
+    props: {
+      summonerInfo
+    }
+  }
+
+}
+
+export default function Summoner({ summonerInfo }) {
 
   { /* Testing purposes - Will eventually connect with API in a similar way */ }
   const summoner = {
-    name: "Taylor Swift",
+    name: summonerInfo.gameId,
     level: "999",
     icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fv2qx9a5ekzt11.jpg&f=1&nofb=1",
     rank: "Grandmaster",
@@ -20,6 +45,7 @@ export default function Summoner() {
     winrate: "100",
     wins: "5",
     losses: "0",
+    fontSize: summonerInfo.gameIdFontSize,
   }
 
   { /* Testing purposes - Will access API to get information and icons based on names */ }
