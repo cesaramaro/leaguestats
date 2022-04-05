@@ -15,7 +15,6 @@ export default function Home() {
       </Head>
 
       {/* ​‌‌‍​‌‍‌𝗛𝗢𝗠𝗘​ */}
-
       <BackgroundHome imageSrc='/images/beemo.jpg'>
         <div className="grid grid-cols-1 grid-rows-3 h-screen w-screen min-h-screen overflow-hidden" id='home'>
           <header className=''>
@@ -30,7 +29,7 @@ export default function Home() {
           </footer>
         </div>
       </BackgroundHome>
-      {/* ​‌‍‌𝗛𝗢𝗠𝗘 𝗘𝗡𝗗​  */}
+      {/* ​‌‍‌𝗛𝗢𝗠𝗘 𝗘𝗡𝗗​ */}
 
     </div>
   )

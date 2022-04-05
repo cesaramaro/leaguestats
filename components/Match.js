@@ -5,6 +5,7 @@ import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
 import Card from './Card'
 import AccentBorder from './BorderAccent'
+import Image from 'next/image'
 
 export default function Match(props) {
 
@@ -28,6 +29,13 @@ export default function Match(props) {
     const kp = props.kp
     const color = props.color
 
+    //* created to place image as background of div and crop ugly dark borders
+    const croppedImage = {
+        backgroundImage: 'url(' + championIcon + ')',
+        backgroundPosition: 'center',
+        backgroundSize: '6.50rem'
+    }
+
     return (
         <div className="">
             {/* TO-DO: Create icon components, fallback borders for when no image is found or slot is empty
@@ -39,13 +47,13 @@ export default function Match(props) {
 
             <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold" color={color}>
                 {/* Champion Icon and Level */}
-                <div name="left-side-icons" className="h-auto w-1/6 relative">
-                    <AccentBorder name="player-icon" className="relative rounded-full flex items-center justify-center w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
-                        <img className="rounded-[12px]" src={championIcon} alt=""></img>
 
+                <div name="left-side-icons" className="h-100 w-1/6 relative">
+                    <AccentBorder className="rounded-full w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
+                        <div name="champion-icn" className='h-full w-full rounded-xl' style={croppedImage} ></div>
                     </AccentBorder>
-                    <AccentBorder name="player-level" className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
-                        <p className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
+                    <AccentBorder className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
+                        <p name="player-level" className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
                     </AccentBorder>
                 </div>
 

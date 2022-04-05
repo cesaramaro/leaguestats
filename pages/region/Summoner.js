@@ -51,7 +51,7 @@ export default function Summoner({ summonerInfo }) {
   { /* TODO - Placeholders */ }
   const matches = [
     {
-      champion: "https://i.postimg.cc/7Zx9kg8J/soraka.png",
+      champion: "https://raw.communitydragon.org/latest/game/assets/characters/soraka/hud/soraka_square.png",
       level: "18",
       dSpell: "https://icon-library.com/images/ignite-icon/ignite-icon-6.jpg",
       fSpell: "https://icon-library.com/images/lol-flash-icon/lol-flash-icon-4.jpg",
@@ -111,7 +111,7 @@ export default function Summoner({ summonerInfo }) {
       kp: "10",
     },
     {
-      champion: "https://i.postimg.cc/fT7Cp8Fh/kaisa.png",
+      champion: "https://raw.communitydragon.org/latest/game/assets/characters/kaisa/hud/kaisa_square.png",
       level: "18",
       dSpell: "https://icon-library.com/images/ignite-icon/ignite-icon-6.jpg",
       fSpell: "https://icon-library.com/images/lol-flash-icon/lol-flash-icon-4.jpg",
@@ -142,7 +142,7 @@ export default function Summoner({ summonerInfo }) {
     },
   ]
 
-  const imageSrc = '/images/malzahar.jpg'
+  const imageSrc = '/images/vex.jpg'
 
   return (
 
