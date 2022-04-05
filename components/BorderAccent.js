@@ -1,23 +1,32 @@
-/* 
-  ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ //* wraps children in a div with a border
-  │ //* user can pass border color, radius and width as well as className for utility classes
-  └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
- */
+import { brighten, darken, } from "../lib/shiftColor"
 
-import { getAccentColor, getBackgroundColor } from "../lib/shiftColor"
-
+// * INFO
+/**
+    * Wraps children HTML in a div with a border
+    *
+    * @param children - html code between tags
+    * @param color - Dominant Color fetched from background. Will give border color  
+    * @param borderRadius - Radius of corners (9999px is full circle) 
+    * @param borderWidth - Widht of border
+    * @param className - passes on css classnames or utility classes to wrapping div
+*/
 export default function AccentBorder({ children, color, borderRadius, borderWidth, className }) {
 
+    //~ if no color set to grey
+    if (!color) { color = '#808080' }
+    //~ if no border radius set to 0px
+    if (!borderRadius) { borderRadius = '0px' }
+    //~ if no border width set to 2px
+    if (!borderWidth) { borderWidth = '2px' }
 
-    const accent = getAccentColor(color)
-    const accentDarker = getBackgroundColor(getBackgroundColor(getBackgroundColor(accent))) //!ill change this later to be able to give how much darker and also rename them to brigter and darker
-    const accentBrighter = getAccentColor(accent)
+    const accent = brighten(color, 10)
+    const font = darken(color, 20)
+    const background = brighten(accent, 10)
 
     const style = {
         borderColor: accent,
-        backgroundColor: accentBrighter,
-        color: accentDarker,
+        backgroundColor: background,
+        color: font,
         borderRadius: borderRadius,
         borderWidth: borderWidth
     }

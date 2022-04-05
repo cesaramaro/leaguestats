@@ -1,15 +1,10 @@
-import SideBar from "../../components/SideBar";
-import SearchBar from "../../components/SearchBar";
-import Champions from '../../components/Champions';
 import Match from '../../components/Match';
 import SummonerCard from '../../components/SummonerCard';
-import Footer from '../../components/Footer';
 import React from "react";
 import NavBarWSearch from "../../components/NavBarWSearch"
 import { fitGameId, getGameId } from "../../lib/fitGameId";
 import Color from "color-thief-react";
-import Image from "next/image";
-import BackgroundSummoner from "../../components/BackgroundSummoner";
+import { BackgroundSummoner } from "../../components/BackgroundLayer";
 
 export async function getStaticProps() {
 

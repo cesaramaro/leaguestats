@@ -1,7 +1,5 @@
 import Color from "color-thief-react";
-import Script from "next/script";
-import { getAccentColor } from "../lib/shiftColor";
-import rankedIcon from "../public/images/challenger.png";
+import { brighten, } from "../lib/shiftColor";
 import AccentBorder from "./BorderAccent";
 import Card from "./Card";
 
@@ -52,7 +50,7 @@ export default function SummonerCard(props) {
                 {/* //! Wip dont know what color to use */}
                 <Color src={rankedIcon} format="hex" crossOrigin="anonymous">
                     {({ data, loading, error }) => (
-                        <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center font-bold" style={{ color: getAccentColor(getAccentColor(data)) }}>
+                        <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center font-bold" style={{ color: brighten(data, 20) }}>
                             <p style={{ textShadow: '0px 2px 10px ' + data }} >{rank} {division}</p>
                             <p >{lp} LP</p>
                         </div>
