@@ -1,6 +1,10 @@
+import Color from "color-thief-react";
 import Script from "next/script";
+import { getAccentColor } from "../lib/shiftColor";
 import rankedIcon from "../public/images/challenger.png";
-import Card from "./card";
+import AccentBorder from "./BorderAccent";
+import Card from "./Card";
+
 
 export default function SummonerCard(props) {
 
@@ -23,27 +27,39 @@ export default function SummonerCard(props) {
         bgColor: { backgroundColor: String(props.color) + 'CC' }
     }
 
+    // * creates path for icon in images temporary until api
+    const rankedIcon = '/images/' + rank + '.png'
+
     return (
         <div className="font-semibold">
             {/* Profile icon, level icon, username, rank icon, rank+division, LP, winrate */}
             <Card className='flex flex-col justify-between center p-12 w-300' color={color}>
-                <div name="icon-lvl" className="flex h-fill w-fill mb-2 justify-center">
-                    <div name="player-icon" className="icon w-150">
+                <div name="icon-lvl" className="flex relative h-fill w-fill mb-2 justify-center">
+
+                    <AccentBorder name="player-icon" className="flex w-150 h-150" color={color} borderRadius='99999px' borderWidth='4px'>
                         <img className="object-cover rounded-full" src={icon} alt=""></img>
-                        <span name="player-level" className="icon absolute -bottom-1 -left-1 h-45 w-45">
-                            <p className="text-center text-purple-800">{level}</p>
-                        </span>
-                    </div>
+
+                    </AccentBorder>
+                    <AccentBorder name="player-level" className="absolute h-45 w-45 left-1 bottom-1" color={color} borderRadius='99999px' borderWidth='4px'>
+                        <p className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
+                    </AccentBorder>
                 </div>
                 {/* User and rank */}
                 <span className="flex w-full place-content-center" id='summoner-name' style={style.fontSize}>
                     {name}
                 </span>
 
-                <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center">
-                    <p className="text-purple-400">{rank} {division}</p>
-                    <p className="text-purple-400">{lp} LP</p>
-                </div>
+                {/* //! Wip dont know what color to use */}
+                <Color src={rankedIcon} format="hex" crossOrigin="anonymous">
+                    {({ data, loading, error }) => (
+                        <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center font-bold" style={{ color: getAccentColor(getAccentColor(data)) }}>
+                            <p style={{ textShadow: '0px 2px 10px ' + data }} >{rank} {division}</p>
+                            <p >{lp} LP</p>
+                        </div>
+                    )}
+
+                </Color>
+
                 {/* Rank icon */}
                 <div name="ranked-icon" className="flex h-fill w-fill justify-center">
                     <img className="object-cover w-44" src={rankedIcon} alt=""></img>

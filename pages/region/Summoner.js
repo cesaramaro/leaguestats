@@ -9,6 +9,7 @@ import NavBarWSearch from "../../components/NavBarWSearch"
 import { fitGameId, getGameId } from "../../lib/fitGameId";
 import Color from "color-thief-react";
 import Image from "next/image";
+import BackgroundSummoner from "../../components/BackgroundSummoner";
 
 export async function getStaticProps() {
 
@@ -40,8 +41,8 @@ export default function Summoner({ summonerInfo }) {
   const summoner = {
     name: summonerInfo.gameId,
     level: "999",
-    icon: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Fv2qx9a5ekzt11.jpg&f=1&nofb=1",
-    rank: "Grandmaster",
+    icon: "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/4457.jpg",
+    rank: "Diamond",
     division: "III",
     lp: "50",
     winrate: "100",
@@ -85,7 +86,7 @@ export default function Summoner({ summonerInfo }) {
       kp: "20",
     },
     {
-      champion: "https://www.mobafire.com/images/avatars/neeko-classic.png",
+      champion: "https://raw.communitydragon.org/latest/game/assets/characters/aphelios/hud/aphelios_square.png",
       level: "3",
       dSpell: "https://icon-library.com/images/ignite-icon/ignite-icon-6.jpg",
       fSpell: "https://icon-library.com/images/lol-flash-icon/lol-flash-icon-4.jpg",
@@ -146,23 +147,29 @@ export default function Summoner({ summonerInfo }) {
     },
   ]
 
+  const imageSrc = '/images/malzahar.jpg'
+
   return (
 
-    <Color src="../../images/ahri.jpg" format="hex" crossOrigin="anonymous">
+    // * asks for background image and calculates dominant color in hsl format
+    // * page html becomes children of Color for efficiency and only calculating color once
+    // * color is passed on to components with data variable and giving them the prop 'color'
+
+    <Color src={imageSrc} format="hex" crossOrigin="anonymous">
       {({ data, loading, error }) => (
 
-        <div>
+        <BackgroundSummoner color={data} imageSrc={imageSrc}>
 
-          <SideBar color={data} />
-          <header className="fixed flex w-screen p-6 place-content-center">
-            <span className='w-700'> <SearchBar color={data} /> </span>
-          </header>
+          <div className="min-w-1072">
+            <NavBarWSearch color={data} />
 
-          <div className="flex flex-row justify-center gap-6 pt-32" >
-            <SummonerCard {...summoner} color={data} />
-            <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} color={data} />)}</div>
+            <div className="flex flex-row justify-center gap-6 pt-32" >
+              <SummonerCard {...summoner} color={data} />
+              <div className="flex flex-col gap-6">{matches.map(match => <Match {...match} color={data} />)}</div>
+            </div >
           </div >
-        </div >
+
+        </BackgroundSummoner>
 
       )}
     </Color>
@@ -176,3 +183,14 @@ export default function Summoner({ summonerInfo }) {
 <div className="min-w-1072">
           <NavBarWSearch />
 */}
+
+
+{// for sidebar navbar
+
+  /* <BackgroundSummoner color={data} imageSrc='url(/images/ahri.jpg)'>
+
+        <div>
+          <SideBar color={data} />
+          <header className="fixed flex w-screen p-6 place-content-center">
+            <span className='w-700'> <SearchBar color={data} /> </span> */
+}

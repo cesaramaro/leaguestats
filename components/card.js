@@ -1,18 +1,18 @@
 /* 
   ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ //* This component Creates a Card for content of given color andf with 80% transparency
+  │ //* This component Creates a Card of a given color and 80% transparency that wraps around html content
+  │ //* card can take css classNames/utility classes and pass the right over to the parent div
   └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
  */
 
-import { getAccentColor, getBackgroundColor } from "../lib/shiftColor"
-
 export default function Card({ children, color, className }) {
-
-    var DARKER = getAccentColor(color)
 
     return (
         <div className={String(className) + " text-white rounded-2xl p-6"} style={{ background: String(color) + "CC" }}>
-            {children}
+            {
+                children
+                // ^ html content
+            }
         </ div>
     )
 

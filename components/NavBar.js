@@ -2,7 +2,7 @@ import Link from 'next/link'
 import LogoIcon from "../public/icons/LogoIcon.svg"
 import SearchIcon from "../public/icons/SearchIcon.svg"
 import GitHub from '../public/icons/GithubIcon.svg'
-import Card from './card'
+import Card from './Card'
 
 /**==============================================
  * *                   INFO

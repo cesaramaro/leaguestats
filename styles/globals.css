@@ -21,15 +21,6 @@
 
 }
 
-body {
-    background-image: url(../public/images/ahri.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-
-}
-
 #root {
     background: rgba(0, 0, 0, 0.40);
     overflow: hidden;

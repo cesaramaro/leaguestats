@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import SearchIcon from '../public/icons/SearchIcon.svg'
-import Card from './card'
+import Card from './Card'
 
 /**==============================================
  * *                   INFO

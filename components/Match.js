@@ -3,7 +3,8 @@ import GoldIcon from '../public/icons/GoldIcon.svg'
 import DamageIcon from '../public/icons/DamageIcon.svg'
 import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
-import Card from './card'
+import Card from './Card'
+import AccentBorder from './BorderAccent'
 
 export default function Match(props) {
 
@@ -38,13 +39,14 @@ export default function Match(props) {
 
             <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold" color={color}>
                 {/* Champion Icon and Level */}
-                <div name="left-side-icons" className="h-auto w-1/6 justify-left">
-                    <div name="player-icon" className="icon border-0 w-100 h-100">
-                        <img className="object-cover rounded-2xl border-4 border-purple-400" src={championIcon} alt=""></img>
-                        <span name="player-level" className="icon absolute -bottom-3 h-35 w-35">
-                            <p className="text-center font-bold text-black">{level}</p>
-                        </span>
-                    </div>
+                <div name="left-side-icons" className="h-auto w-1/6 relative">
+                    <AccentBorder name="player-icon" className="relative rounded-full flex items-center justify-center w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
+                        <img className="rounded-[12px]" src={championIcon} alt=""></img>
+
+                    </AccentBorder>
+                    <AccentBorder name="player-level" className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
+                        <p className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
+                    </AccentBorder>
                 </div>
 
                 <div className='flex 1/6'>
@@ -118,7 +120,7 @@ export default function Match(props) {
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>
                 </div>
-            </Card>
-        </div>
+            </Card >
+        </div >
     )
 }
