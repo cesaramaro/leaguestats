@@ -9,7 +9,7 @@ import AccentBorder from './BorderAccent'
 import Image from 'next/image'
 
 export default function Match({ user, matchID, color }) {
-    const { match, isLoading, isError } = useMatch({user, matchID})
+    const { match, isLoading, isError } = useMatch({ user, matchID })
     if (isLoading) return <div>LOADING MATCH</div>
     if (isError) return <div>failed to load</div>
 
@@ -36,15 +36,15 @@ export default function Match({ user, matchID, color }) {
     const gold = player.goldEarned || '0'
     const damageDealt = player.totalDamageDealt
     const damage = (damageDealt > 1000 ? (damageDealt / 1000).toFixed(1) + 'k' : damageDealt) || '0'
-    let tempDuration = ((match.info.gameDuration/60).toFixed(2)).split(".")
+    let tempDuration = ((match.info.gameDuration / 60).toFixed(2)).split(".")
     const mins = tempDuration[0]
     const secs = tempDuration[1]
     const duration = mins + 'm ' + secs + 's' || 'x'
-    const timeAgo = parseInt((Date.now() - match.info.gameEndTimestamp)/86400000) + ' days ago'  || '0'
+    const timeAgo = parseInt((Date.now() - match.info.gameEndTimestamp) / 86400000) + ' days ago' || '0'
     const gamemode = match.info.gameMode || 'x'
     const kp = 'x'
 
-    console.log(match)
+    // console.log(match)
 
     //* created to place image as background of div and crop ugly dark borders
     const croppedImage = {
@@ -154,10 +154,10 @@ function findSummonerParticipantID(participants, name) {
     for (let i = 0; i < 10; i++) {
         if (participants[i].summonerName === name) return i;
     }
-  }
+}
 
 function getIconURL(iconID) {
-    if(iconID === 0) return;
+    if (iconID === 0) return;
     return `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${iconID}.png`
 }
 

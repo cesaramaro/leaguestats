@@ -1,4 +1,4 @@
-import { useSummoner } from"../hooks/helper"
+import { useSummoner } from "../hooks/helper"
 import Color from "color-thief-react";
 import { brighten, } from "../lib/shiftColor";
 import AccentBorder from "./BorderAccent";
@@ -6,12 +6,12 @@ import Card from "./Card";
 import { fitGameId } from '../lib/fitGameId';
 
 export default function SummonerCard({ user, color }) {
-    const { summoner, isLoading, isError } = useSummoner({user})
+    const { summoner, isLoading, isError } = useSummoner({ user })
 
     if (isLoading) return <div>LOADING SUMMONER CARD</div>
     if (isError) return <div>failed to load</div>
-    console.log(" SUMMONER CARD")
-    console.log(summoner)
+    // console.log(" SUMMONER CARD")
+    // console.log(summoner)
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
     const imageSrc = '/images/vex.jpg'
@@ -23,21 +23,21 @@ export default function SummonerCard({ user, color }) {
     var lp = ""
     var wins = ""
     var losses = ""
-    var winrate =  ""
-    
-    if(rankedInfo) {
+    var winrate = ""
+
+    if (rankedInfo) {
         rank = rankedInfo.tier || "x"
         division = rankedInfo.rank || "x"
         lp = rankedInfo.leaguePoints || "x"
         wins = rankedInfo.wins || "x"
         losses = rankedInfo.losses || "x"
-        winrate =  parseFloat(((wins/(wins+losses)) * 100)).toFixed(2) || "x"
+        winrate = parseFloat(((wins / (wins + losses)) * 100)).toFixed(2) || "x"
     }
 
     // * creates correct string for fontSize style
     const style = {
         fontSize: { fontSize: String(fitGameId(name)) + 'px' },
-        bgColor: { backgroundColor: String({color}) + 'CC' }
+        bgColor: { backgroundColor: String({ color }) + 'CC' }
     }
 
     // * creates path for icon in images temporary until api
