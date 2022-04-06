@@ -19,13 +19,13 @@ function IconNavBar(props) {
     return (
         <Card className="flex font-Inter font-black text-2xl h-80 justify-between" color={props.color}>
             < p className="text-white text-center" > nt. </p >
-            <a className=' text-white' href="">
+            <a className=' text-white' href="/">
                 <HomeIcon height='2rem' />
             </a>
-            <a className=' text-white' href="">
+            <a className=' text-white' href="/about">
                 <InfoIcon height='2rem' />
             </a>
-            <a className="text-white" href="">
+            <a className="text-white" href="https://github.com/cesaramaro/leaguestats">
                 <GitHub height='2rem' />
             </a>
         </Card>
@@ -36,8 +36,8 @@ function IconNavBar(props) {
 export default function NavBarWSearch(props) {
 
     return (
-        <header className='fixed flex place-content-center w-screen p-6 gap-6 min-w-1072'>
-            < div className="w-300" >
+        <header className='fixed flex place-content-center w-screen py-6 gap-6 min-w-1072'>
+            <div className="w-300" >
                 <IconNavBar color={props.color} />
             </div >
             <div className='w-700'>

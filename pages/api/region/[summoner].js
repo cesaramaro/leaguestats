@@ -45,13 +45,33 @@ async function getSummonerData(summoner) {
   let response = await fetch(getSummoner);
   let data = await response.json()
   let matchesList = await getMatches(summoner)
+  let masteries = await getSummonerMastery(data.id)
+  let rankedList = await getSummonerRanked(data.id)
 
   let toReturn = {
     summoner: data,
+    mastery: masteries,
+    ranked: rankedList,
     matches: matchesList
   }
 
   return toReturn;
+}
+
+async function getSummonerMastery(summonerID) {
+  const getMastery = `https://na1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${summonerID}?api_key=${apiKey}` 
+  let response = await fetch(getMastery);
+  let data = await response.json()
+
+  return data;
+}
+
+async function getSummonerRanked(summonerID) {
+  const getRanked = `https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerID}?api_key=${apiKey}` 
+  let response = await fetch(getRanked);
+  let data = await response.json()
+
+  return data;
 }
 
 export function getIconURL(iconID) {

@@ -1,5 +1,3 @@
-import SideBar from "../../components/SideBar"
-import SearchBar from "../../components/SearchBar"
 import Match from '../../components/Match'
 import SummonerCard from '../../components/SummonerCard'
 import useSWR from 'swr'
@@ -18,11 +16,12 @@ export default function Summoner() {
   
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
-  console.log(data)
+
   const userName = (data.summoner.name).toString();
   const matches = data.matches
-  const imageSrc = '/images/vex.jpg'
-  
+  const highestMasteryID = data.mastery[0].championId
+  const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/${highestMasteryID}/${highestMasteryID}000.jpg` 
+
   return (
 
     // * asks for background image and calculates dominant color in hex format
@@ -32,13 +31,12 @@ export default function Summoner() {
     <Color src={imageSrc} format="hex" crossOrigin="anonymous">
       {({ data, loading, error }) => (
         <BackgroundSummoner color={data} imageSrc={imageSrc}>
-          <div className="min-w-1072">
+          <div className="w-screen min-w-1072">
             <NavBarWSearch color={data} />
-            <div className="flex flex-row justify-center gap-6 pt-32" >
-              <SummonerCard user={userName} color={data} />
+            <div className="flex flex-row justify-center gap-6 pt-32" ><SummonerCard user={userName} color={data}/>
               <div className="flex flex-col gap-6">{matches.map(match => <Match user={userName} matchID={match} color={data}/>)}</div>
-            </div >
-          </div >
+            </div>
+          </div>
         </BackgroundSummoner>
       )}
     </Color>

@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title> Nerf This. </title>
+        <title> nerf this. </title>
         <meta name="description" content="League of Legends Stats" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

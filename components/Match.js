@@ -17,28 +17,34 @@ export default function Match({ user, matchID, color }) {
     const player = match.info.participants[participantID]
     const championIcon = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${player.championId}.png` || 'x'
     const level = player.champLevel || 'x'
-    const dSpell = player.champLevel || 'x'
-    const fSpell = player.champLevel || 'x'
+    const dSpell = getSummonerSpellURL(player.summoner1Id) || 'x'
+    const fSpell = getSummonerSpellURL(player.summoner2Id) || 'x'
     const primaryRune = 'x'
     const secondaryRune = 'x'
-    const kills = player.kills || 'x'
-    const deaths = player.deaths || 'x'
-    const assists = player.assists || 'x'
-    const kda = (kills + assists / 8) || 0
+    const kills = player.kills || '0'
+    const deaths = player.deaths || '0'
+    const assists = player.assists || '0'
+    const kda = parseFloat((kills + assists / 8)).toFixed(1) || '0'
     const item_0 = getIconURL(player.item0) || 'x'
-    const item_1 = getIconURL(player.item0) || 'x'
-    const item_2 = getIconURL(player.item0) || 'x'
-    const item_3 = getIconURL(player.item0) || 'x'
-    const item_4 = getIconURL(player.item0) || 'x'
-    const item_5 = getIconURL(player.item0) || 'x'
-    const item_6 = getIconURL(player.item0) || 'x'
-    const cs = 'x'
-    const gold = player.goldEarned || 'x'
-    const damage ='x'
-    const duration = match.info.gameDuration || 'x'
-    const timeAgo = player.timeAgo || 'x'
+    const item_1 = getIconURL(player.item1) || 'x'
+    const item_2 = getIconURL(player.item2) || 'x'
+    const item_3 = getIconURL(player.item3) || 'x'
+    const item_4 = getIconURL(player.item4) || 'x'
+    const item_5 = getIconURL(player.item5) || 'x'
+    const item_6 = getIconURL(player.item6) || 'x'
+    const cs = player.totalMinionsKilled || '0'
+    const gold = player.goldEarned || '0'
+    const damageDealt = player.totalDamageDealt
+    const damage = (damageDealt > 1000 ? (damageDealt / 1000).toFixed(1) + 'k' : damageDealt) || '0'
+    let tempDuration = ((match.info.gameDuration/60).toFixed(2)).split(".")
+    const mins = tempDuration[0]
+    const secs = tempDuration[1]
+    const duration = mins + 'm ' + secs + 's' || 'x'
+    const timeAgo = parseInt((Date.now() - match.info.gameEndTimestamp)/86400000) + ' days ago'  || '0'
     const gamemode = match.info.gameMode || 'x'
-    const kp = player.kp || 'x'
+    const kp = 'x'
+
+    console.log(match)
 
     //* created to place image as background of div and crop ugly dark borders
     const croppedImage = {
@@ -151,5 +157,14 @@ function findSummonerParticipantID(participants, name) {
   }
 
 function getIconURL(iconID) {
-    return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6617_enchanter_t4_moonstonerenewer.png'
+    if(iconID === 0) return;
+    return `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${iconID}.png`
+}
+
+function getSummonerSpellURL(summonerSpellID) {
+    return `../images/spell/summoner${summonerSpellID}.png`
+}
+
+function getSummonerSpellName(summonerSpellID) {
+
 }

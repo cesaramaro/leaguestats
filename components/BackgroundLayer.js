@@ -1,3 +1,4 @@
+import { Hidden } from "@material-ui/core"
 import { darken } from "../lib/shiftColor"
 
 //! i could make this one function and give it default values which will be homepage values
@@ -71,9 +72,11 @@ export function BackgroundSummoner({ children, imageSrc, color }) {
             backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+
         },
         gradient: {
-            background: 'linear-gradient(0deg, ' + darker + ' 40%,' + darker + 'e6 70%,' + darker + '66 100%)',
+            background: 'linear-gradient(0deg, ' + darker + ' 30%,' + darker + 'e6 60%,' + darker + '66 100%)',
+            overflowX: 'hidden',
             // background: 'linear-gradient(0deg, ' + darker + 'FF, ' + darker + 'CC, ' + darker + '99, ' + darker + '66, ' + darker + '33, ' + darker + '00)',
             // ^ theres 3 sections to the gradient so its not so sharp hex colors have added alpha channels
         }

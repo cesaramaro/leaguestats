@@ -1,4 +1,3 @@
-import rankedIcon from "../public/images/challenger.png";
 import { useSummoner } from"../hooks/helper"
 import Color from "color-thief-react";
 import { brighten, } from "../lib/shiftColor";
@@ -11,17 +10,29 @@ export default function SummonerCard({ user, color }) {
 
     if (isLoading) return <div>LOADING SUMMONER CARD</div>
     if (isError) return <div>failed to load</div>
-
+    console.log(" SUMMONER CARD")
+    console.log(summoner)
+    const summonerInfo = summoner.summoner
+    const rankedInfo = summoner.ranked[0]
     const imageSrc = '/images/vex.jpg'
-    const name = summoner.name || "x"
-    const level = summoner.summonerLevel || "x"
-    const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summoner.profileIconId}.png` || "x"
-    const rank = summoner.rank || "x"
-    const division = summoner.division || "x"
-    const lp = summoner.lp || "x"
-    const winrate = summoner.winrate || "x"
-    const wins = summoner.wins || "x"
-    const losses = summoner.losses || "x"
+    const name = summonerInfo.name || "x"
+    const level = summonerInfo.summonerLevel || "x"
+    const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summonerInfo.profileIconId}.png` || "x"
+    var rank = "Unranked"
+    var division = ""
+    var lp = ""
+    var wins = ""
+    var losses = ""
+    var winrate =  ""
+    
+    if(rankedInfo) {
+        rank = rankedInfo.tier || "x"
+        division = rankedInfo.rank || "x"
+        lp = rankedInfo.leaguePoints || "x"
+        wins = rankedInfo.wins || "x"
+        losses = rankedInfo.losses || "x"
+        winrate =  parseFloat(((wins/(wins+losses)) * 100)).toFixed(2) || "x"
+    }
 
     // * creates correct string for fontSize style
     const style = {
@@ -30,7 +41,7 @@ export default function SummonerCard({ user, color }) {
     }
 
     // * creates path for icon in images temporary until api
-    const rankedIcon = '/images/' + rank + '.png'
+    const rankedIcon = '/images/rank/' + rank + '.png'
 
     return (
         <div className="font-semibold">
