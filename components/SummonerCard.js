@@ -1,18 +1,23 @@
 import rankedIcon from "../public/images/challenger.png";
-import useTextFit from "use-text-fit";
+import useSWR from 'swr'
+import { useSummoner } from"../hooks/helper"
 
-export default function SummonerCard(props) {
+export default function SummonerCard({ user }) {
+    const { summoner, isLoading, isError } = useSummoner({user})
+
+    if (isLoading) return <div>LOADING SUMMONER CARD</div>
+    if (isError) return <div>failed to load</div>
 
     {/* Testing purposes */ }
-    const name = props.name
-    const level = props.level
-    const icon = props.icon
-    const rank = props.rank
-    const division = props.division
-    const lp = props.lp
-    const winrate = props.winrate
-    const wins = props.wins
-    const losses = props.losses
+    const name = summoner.name || "x"
+    const level = summoner.summonerLevel || "x"
+    const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summoner.profileIconId}.png` || "x"
+    const rank = summoner.rank || "x"
+    const division = summoner.division || "x"
+    const lp = summoner.lp || "x"
+    const winrate = summoner.winrate || "x"
+    const wins = summoner.wins || "x"
+    const losses = summoner.losses || "x"
 
     return (
         <div className="font-semibold">

@@ -12,7 +12,8 @@
     "fitty": "^2.3.6",
     "next": "^12.1.4",
     "react": "18.0.0",
-    "react-dom": "18.0.0"
+    "react-dom": "18.0.0",
+    "swr": "^1.2.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.2.1",

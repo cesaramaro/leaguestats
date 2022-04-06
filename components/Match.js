@@ -3,27 +3,39 @@ import GoldIcon from '../public/icons/GoldIcon.svg'
 import DamageIcon from '../public/icons/DamageIcon.svg'
 import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
+import { useMatch } from '../hooks/helper'
 
-export default function Match(props) {
+export default function Match({ user, matchID }) {
+    const { match, isLoading, isError } = useMatch({user, matchID})
+    if (isLoading) return <div>LOADING MATCH</div>
+    if (isError) return <div>failed to load</div>
 
-    const championIcon = props.champion
-    const level = props.level
-    const dSpell = props.dSpell
-    const fSpell = props.fSpell
-    const primaryRune = props.primaryRune
-    const secondaryRune = props.secondaryRune
-    const kills = props.kills
-    const deaths = props.deaths
-    const assists = props.assists
-    const kda = props.kda
-    const items = props.items
-    const cs = props.cs
-    const gold = props.gold
-    const damage = props.damage
-    const duration = props.duration
-    const timeAgo = props.timeAgo
-    const gamemode = props.gamemode
-    const kp = props.kp
+    const participantID = findSummonerParticipantID(match.info.participants, user)
+    const player = match.info.participants[participantID]
+    const championIcon = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${player.championId}.png` || 'x'
+    const level = player.champLevel || 'x'
+    const dSpell = player.champLevel || 'x'
+    const fSpell = player.champLevel || 'x'
+    const primaryRune = 'x'
+    const secondaryRune = 'x'
+    const kills = player.kills || 'x'
+    const deaths = player.deaths || 'x'
+    const assists = player.assists || 'x'
+    const kda = (kills + assists / 8) || 0
+    const item_0 = getIconURL(player.item0) || 'x'
+    const item_1 = getIconURL(player.item0) || 'x'
+    const item_2 = getIconURL(player.item0) || 'x'
+    const item_3 = getIconURL(player.item0) || 'x'
+    const item_4 = getIconURL(player.item0) || 'x'
+    const item_5 = getIconURL(player.item0) || 'x'
+    const item_6 = getIconURL(player.item0) || 'x'
+    const cs = 'x'
+    const gold = player.goldEarned || 'x'
+    const damage ='x'
+    const duration = match.info.gameDuration || 'x'
+    const timeAgo = player.timeAgo || 'x'
+    const gamemode = match.info.gameMode || 'x'
+    const kp = player.kp || 'x'
 
     return (
         <div className="">
@@ -77,14 +89,14 @@ export default function Match(props) {
                 <div className=' center'>
                     <div className="flex flex-col justify-center w-max">
                         <div className="flex justify-between gap-1">
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item1} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item2} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item3} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_0} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_1} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_2} alt=""></img></span></div>
                         </div>
                         <div className="flex justify-between gap-1 pt-1 w-max">
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item4} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item5} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={items[0].item6} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_3} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_4} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_5} alt=""></img></span></div>
                         </div>
                     </div>
                 </div>
@@ -118,4 +130,14 @@ export default function Match(props) {
             </div>
         </div>
     )
+}
+
+function findSummonerParticipantID(participants, name) {
+    for (let i = 0; i < 10; i++) {
+        if (participants[i].summonerName === name) return i;
+    }
+  }
+
+function getIconURL(iconID) {
+    return 'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6617_enchanter_t4_moonstonerenewer.png'
 }

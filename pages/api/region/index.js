@@ -1,4 +1,4 @@
 export default function handler(req, res) {
-    const { summoner } = req.query
-    res.end(`Summ: ${summoner}`)
+    const { summoner, matches, match } = req.query
+    res.end(`Summoner: ${summoner}`)
   }
