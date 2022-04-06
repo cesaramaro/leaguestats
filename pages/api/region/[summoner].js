@@ -1,5 +1,4 @@
 const apiKey = 'EXAMPLE_KEY'
-var allSummonerInfo = {}
 
 export default async function handler(req, res) {
   const { summoner, matches, match } = req.query

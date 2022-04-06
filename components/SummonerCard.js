@@ -4,13 +4,15 @@ import Color from "color-thief-react";
 import { brighten, } from "../lib/shiftColor";
 import AccentBorder from "./BorderAccent";
 import Card from "./Card";
+import { fitGameId } from '../lib/fitGameId';
 
-export default function SummonerCard({ user }) {
+export default function SummonerCard({ user, color }) {
     const { summoner, isLoading, isError } = useSummoner({user})
 
     if (isLoading) return <div>LOADING SUMMONER CARD</div>
     if (isError) return <div>failed to load</div>
 
+    const imageSrc = '/images/vex.jpg'
     const name = summoner.name || "x"
     const level = summoner.summonerLevel || "x"
     const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summoner.profileIconId}.png` || "x"
@@ -23,8 +25,8 @@ export default function SummonerCard({ user }) {
 
     // * creates correct string for fontSize style
     const style = {
-        fontSize: { fontSize: String(fontSizeGameId) + 'px' },
-        bgColor: { backgroundColor: String(props.color) + 'CC' }
+        fontSize: { fontSize: String(fitGameId(name)) + 'px' },
+        bgColor: { backgroundColor: String({color}) + 'CC' }
     }
 
     // * creates path for icon in images temporary until api

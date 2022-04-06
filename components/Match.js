@@ -8,7 +8,7 @@ import Card from './Card'
 import AccentBorder from './BorderAccent'
 import Image from 'next/image'
 
-export default function Match({ user, matchID }) {
+export default function Match({ user, matchID, color }) {
     const { match, isLoading, isError } = useMatch({user, matchID})
     if (isLoading) return <div>LOADING MATCH</div>
     if (isError) return <div>failed to load</div>

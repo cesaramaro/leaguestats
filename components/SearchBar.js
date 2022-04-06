@@ -16,7 +16,7 @@ const redirectToSummoner = async (event) => {
 
 export default function SearchBar(props) {
     return (
-        <form aonSubmit={redirectToSummoner} className="flex font-Inter text-2xl justify-center">
+        <form onSubmit={redirectToSummoner} className="flex font-Inter text-2xl justify-center">
 
             <Card className="flex flex-row place-items-center w-full h-80 gap-6" color={props.color}>
                 <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold" id="summoner" name="summoner" type={"text"} htmlFor='search' placeholder="Search for Summoner..." required></input>
