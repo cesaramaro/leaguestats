@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import LogoIcon from "../public/icons/LogoIcon.svg"
-import SearchIcon from "../public/icons/SearchIcon.svg"
 import GitHub from '../public/icons/GithubIcon.svg'
+import Card from './Card'
 
 /**==============================================
  * *                   INFO
@@ -15,10 +15,10 @@ import GitHub from '../public/icons/GithubIcon.svg'
  * Github Icon keeps to the end separated..
  *=============================================**/
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <nav className="flex fixed w-full p-6 font-Inter font-semibold text-2xl">
-      <div className="flex items-center h-80 card">
+      <Card className="flex items-center h-80 card" color={props.color}>
         <Link href={'/'}>
           <a className="h-10">
             <LogoIcon height='100%' />
@@ -30,7 +30,7 @@ export default function NavBar() {
         <Link href={'/about'}>
           <a className="" href="../pages/Home"> About </a>
         </Link>
-      </div>
+      </Card>
 
       <div className="flex items-center p-6 justify-end ml-auto">
         <a className=' text-white w-40' href="https://github.com/cesaramaro/leaguestats">

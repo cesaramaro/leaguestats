@@ -3,6 +3,7 @@ import SearchBar from './SearchBar.js'
 import GitHub from '../public/icons/GithubIcon.svg'
 import HomeIcon from '../public/icons/HomeIcon.svg'
 import InfoIcon from '../public/icons/InfoIcon.svg'
+import Card from './Card.js'
 
 /**==============================================
  * *                   INFO
@@ -13,9 +14,10 @@ import InfoIcon from '../public/icons/InfoIcon.svg'
  *=============================================**/
 
 
-function IconNavBar() {
+function IconNavBar(props) {
+
     return (
-        <nav className="flex font-Inter font-black text-2xl card h-80 justify-between">
+        <Card className="flex font-Inter font-black text-2xl h-80 justify-between" color={props.color}>
             < p className="text-white text-center" > nt. </p >
             <a className=' text-white' href="">
                 <HomeIcon height='2rem' />
@@ -26,19 +28,20 @@ function IconNavBar() {
             <a className="text-white" href="">
                 <GitHub height='2rem' />
             </a>
-        </nav >);
+        </Card>
+    );
 }
 
 
-export default function NavBarWSearch() {
-    return (
+export default function NavBarWSearch(props) {
 
+    return (
         <header className='fixed flex place-content-center w-screen p-6 gap-6 min-w-1072'>
             < div className="w-300" >
-                <IconNavBar />
+                <IconNavBar color={props.color} />
             </div >
             <div className='w-700'>
-                <SearchBar />
+                <SearchBar color={props.color} />
             </div>
         </header >
     )

@@ -4,6 +4,9 @@ import DamageIcon from '../public/icons/DamageIcon.svg'
 import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
 import { useMatch } from '../hooks/helper'
+import Card from './Card'
+import AccentBorder from './BorderAccent'
+import Image from 'next/image'
 
 export default function Match({ user, matchID }) {
     const { match, isLoading, isError } = useMatch({user, matchID})
@@ -37,6 +40,13 @@ export default function Match({ user, matchID }) {
     const gamemode = match.info.gameMode || 'x'
     const kp = player.kp || 'x'
 
+    //* created to place image as background of div and crop ugly dark borders
+    const croppedImage = {
+        backgroundImage: 'url(' + championIcon + ')',
+        backgroundPosition: 'center',
+        backgroundSize: '6.50rem'
+    }
+
     return (
         <div className="">
             {/* TO-DO: Create icon components, fallback borders for when no image is found or slot is empty
@@ -45,15 +55,17 @@ export default function Match({ user, matchID }) {
                         Set size (higher width)
                         Clean-up
             */}
-            <div className="flex card h-150 w-700 center gap-4 text-gray-200 font-semibold">
+
+            <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold" color={color}>
                 {/* Champion Icon and Level */}
-                <div name="left-side-icons" className="h-auto w-1/6 justify-left">
-                    <div name="player-icon" className="icon border-0 w-100 h-100">
-                        <img className="object-cover rounded-2xl border-4 border-purple-400" src={championIcon} alt=""></img>
-                        <span name="player-level" className="icon absolute -bottom-3 h-35 w-35">
-                            <p className="text-center font-bold text-black">{level}</p>
-                        </span>
-                    </div>
+
+                <div name="left-side-icons" className="h-100 w-1/6 relative">
+                    <AccentBorder className="rounded-full w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
+                        <div name="champion-icn" className='h-full w-full rounded-xl' style={croppedImage} ></div>
+                    </AccentBorder>
+                    <AccentBorder className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
+                        <p name="player-level" className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
+                    </AccentBorder>
                 </div>
 
                 <div className='flex 1/6'>
@@ -127,8 +139,8 @@ export default function Match({ user, matchID }) {
                     <p className="flex">{duration}</p>
                     <p className="flex text-xs">{timeAgo}</p>
                 </div>
-            </div>
-        </div>
+            </Card >
+        </div >
     )
 }
 
