@@ -7,6 +7,7 @@ import { useMatch } from '../hooks/helper'
 import Card from './Card'
 import AccentBorder from './BorderAccent'
 import Image from 'next/image'
+import { darken } from '../lib/shiftColor'
 
 export default function Match({ user, matchID, color }) {
     const { match, isLoading, isError } = useMatch({ user, matchID })
@@ -47,10 +48,15 @@ export default function Match({ user, matchID, color }) {
     // console.log(match)
 
     //* created to place image as background of div and crop ugly dark borders
-    const croppedImage = {
-        backgroundImage: 'url(' + championIcon + ')',
-        backgroundPosition: 'center',
-        backgroundSize: '6.50rem'
+    const style = {
+        bgItems: {
+            backgroundColor: darken(color, 10)
+        },
+        croppedImage: {
+            backgroundImage: 'url(' + championIcon + ')',
+            backgroundPosition: 'center',
+            backgroundSize: '6.50rem'
+        }
     }
 
     return (
@@ -67,7 +73,7 @@ export default function Match({ user, matchID, color }) {
 
                 <div name="left-side-icons" className="h-100 w-1/6 relative">
                     <AccentBorder className="rounded-full w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
-                        <div name="champion-icn" className='h-full w-full rounded-xl' style={croppedImage} ></div>
+                        <div name="champion-icn" className='h-full w-full rounded-xl' style={style.croppedImage} ></div>
                     </AccentBorder>
                     <AccentBorder className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
                         <p name="player-level" className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
@@ -107,14 +113,14 @@ export default function Match({ user, matchID, color }) {
                 <div className=' center'>
                     <div className="flex flex-col justify-center w-max">
                         <div className="flex justify-between gap-1">
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_0} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_1} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_2} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_0} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_1} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_2} alt=""></img></span></div>
                         </div>
                         <div className="flex justify-between gap-1 pt-1 w-max">
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_3} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_4} alt=""></img></span></div>
-                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={item_5} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_3} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_4} alt=""></img></span></div>
+                            <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={style.bgItems}><img className="object-cover" src={item_5} alt=""></img></span></div>
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ export default function SummonerCard({ user, color }) {
                     </AccentBorder>
                 </div>
                 {/* User and rank */}
-                <span className="flex w-full place-content-center" id='summoner-name' style={style.fontSize}>
+                <span className="flex w-full place-content-center whitespace-nowrap" id='summoner-name' style={style.fontSize}>
                     {name}
                 </span>
 
@@ -74,7 +74,7 @@ export default function SummonerCard({ user, color }) {
                 </Color>
 
                 {/* Rank icon */}
-                <div name="ranked-icon" className="flex h-fill w-fill justify-center">
+                <div name="ranked-icon" className="flex w-fill justify-center pb-3">
                     <img className="object-cover w-44" src={rankedIcon} alt=""></img>
                 </div>
 
