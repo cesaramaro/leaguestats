@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import SearchIcon from '../public/icons/SearchIcon.svg'
+import SearchIcon from '../../public/icons/SearchIcon.svg'
 import Router from 'next/router'
-import Card from './Card'
+import Card from './card'
 
 /**==============================================
  * *                   INFO

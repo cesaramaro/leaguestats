@@ -1,4 +1,4 @@
-import { brighten, darken, } from "../lib/shiftColor"
+import { brighten, darken, } from "../../lib/shiftColor"
 
 // * INFO
 /**

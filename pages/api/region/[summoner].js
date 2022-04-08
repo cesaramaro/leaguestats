@@ -3,12 +3,12 @@ const apiKey = 'EXAMPLE_KEY'
 export default async function handler(req, res) {
   const { summoner, matches, match } = req.query
   const summonerName = {summoner}.summoner.toString();
+  
   if (!match && !matches) {
     try {
       const response = await getSummonerData(summonerName);
       res.status(200).json(response);
     }
-  
     catch (error) {
       res.json(error);
       res.status(405).end();
@@ -41,21 +41,25 @@ export default async function handler(req, res) {
 }
 
 async function getSummonerData(summoner) {
-  const getSummoner = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${apiKey}` 
-  let response = await fetch(getSummoner);
-  let data = await response.json()
-  let matchesList = await getMatches(summoner)
-  let masteries = await getSummonerMastery(data.id)
-  let rankedList = await getSummonerRanked(data.id)
-
-  let toReturn = {
-    summoner: data,
-    mastery: masteries,
-    ranked: rankedList,
-    matches: matchesList
+  try {
+    const getSummoner = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${apiKey}` 
+    let response = await fetch(getSummoner);
+    let data = await response.json()
+    let matchesList = await getMatches(summoner)
+    let masteries = await getSummonerMastery(data.id)
+    let rankedList = await getSummonerRanked(data.id)
+  
+    let toReturn = {
+      summoner: data,
+      mastery: masteries,
+      ranked: rankedList,
+      matches: matchesList
+    }
+    return toReturn;
   }
-
-  return toReturn;
+  catch (error) {
+    return null;
+  }
 }
 
 async function getSummonerMastery(summonerID) {

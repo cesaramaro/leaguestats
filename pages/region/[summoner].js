@@ -1,10 +1,11 @@
-import Match from '../../components/Match'
-import SummonerCard from '../../components/SummonerCard'
+import Match from '../../components/match/Match'
+import SummonerCard from '../../components/summoner/SummonerCard'
 import useSWR from 'swr'
 import { useRouter } from 'next/router' 
-import NavBarWSearch from "../../components/NavBarWSearch"
+import NavBarWSearch from "../../components/common/NavBarWSearch"
 import Color from "color-thief-react";
-import { BackgroundSummoner } from "../../components/BackgroundLayer";
+import { BackgroundSummoner } from "../../components/common/BackgroundLayer";
+import Loading from '../../components/common/Loading'
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -13,10 +14,10 @@ export default function Summoner() {
   const router = useRouter()
   const { summoner } = router.query
   const { data, error } = useSWR(summoner ? `/api/region/${summoner}` : null, fetcher)
-  
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
 
+  if (error || data === null) return <div>Failed to load summoner...</div>
+  if (!data) return <div><Loading /></div>
+  
   const userName = (data.summoner.name).toString();
   const matches = data.matches
   const highestMasteryID = data.mastery[0].championId

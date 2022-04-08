@@ -5,6 +5,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export function useSummoner({ user }) {
     const { data, error } = useSWR(user ? `/api/region/${user}` : null, fetcher)
     
+    if (error) return error;
     let toReturn = {
       summoner: data.summoner,
       ranked: data.ranked

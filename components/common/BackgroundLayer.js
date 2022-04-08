@@ -1,5 +1,5 @@
 import { Hidden } from "@material-ui/core"
-import { darken } from "../lib/shiftColor"
+import { darken } from "../../lib/shiftColor"
 
 //! i could make this one function and give it default values which will be homepage values
 

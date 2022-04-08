@@ -1,8 +1,8 @@
 import Head from "next/head";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/common/NavBar";
 import SearchBar from "../components/SearchBar";
-import Footer from "../components/Footer";
-import { BackgroundHome } from "../components/BackgroundLayer";
+import Footer from "../components/common/Footer";
+import { BackgroundHome } from "../components/common/BackgroundLayer";
 
 export default function About() {
 

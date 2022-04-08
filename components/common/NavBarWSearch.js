@@ -1,9 +1,9 @@
 
 import SearchBar from './SearchBar.js'
-import GitHub from '../public/icons/GithubIcon.svg'
-import HomeIcon from '../public/icons/HomeIcon.svg'
-import InfoIcon from '../public/icons/InfoIcon.svg'
-import Card from './Card.js'
+import GitHub from '../../public/icons/GithubIcon.svg'
+import HomeIcon from '../../public/icons/HomeIcon.svg'
+import InfoIcon from '../../public/icons/InfoIcon.svg'
+import Card from './card.js'
 
 /**==============================================
  * *                   INFO

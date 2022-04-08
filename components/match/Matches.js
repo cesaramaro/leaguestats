@@ -3,15 +3,15 @@ import GoldIcon from '../public/icons/GoldIcon.svg'
 import DamageIcon from '../public/icons/DamageIcon.svg'
 import KpIcon from '../public/icons/KpIcon.svg'
 import ClockIcon from '../public/icons/ClockIcon.svg'
-import { useMatch } from '../hooks/helper'
-import Card from './Card'
-import AccentBorder from './BorderAccent'
+import { useMatch } from '../../hooks/helper'
+import Card from '../common/card'
+import AccentBorder from '../common/BorderAccent'
 import Image from 'next/image'
 
-export default function Match({ user, matchID, color }) {
+export default function Matches({ user, color }) {
     const { match, isLoading, isError } = useMatch({user, matchID})
-    if (isLoading) return <div>LOADING MATCH</div>
-    if (isError) return <div>failed to load</div>
+    if (isLoading) return <div>Loading Match...</div>
+    if (isError) return <div>No matches found :(</div>
 
     const participantID = findSummonerParticipantID(match.info.participants, user)
     const player = match.info.participants[participantID]

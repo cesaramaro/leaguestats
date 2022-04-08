@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import GitHub from '../public/icons/GithubIcon.svg'
-import HomeIcon from '../public/icons/HomeIcon.svg'
-import InfoIcon from '../public/icons/InfoIcon.svg'
+import GitHub from '../../public/icons/GithubIcon.svg'
+import HomeIcon from '../../public/icons/HomeIcon.svg'
+import InfoIcon from '../../public/icons/InfoIcon.svg'
 import Card from './Card'
 
 /**==============================================

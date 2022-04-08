@@ -1,20 +1,19 @@
-import { useSummoner } from"../hooks/helper"
+import { useSummoner } from"../../hooks/helper"
 import Color from "color-thief-react";
-import { brighten, } from "../lib/shiftColor";
-import AccentBorder from "./BorderAccent";
-import Card from "./Card";
-import { fitGameId } from '../lib/fitGameId';
+import { brighten, } from "../../lib/shiftColor";
+import AccentBorder from "../common/BorderAccent";
+import Card from "../common/card";
+import { fitGameId } from '../../lib/fitGameId';
+import LoadingCard from "./LoadingCard";
 
 export default function SummonerCard({ user, color }) {
     const { summoner, isLoading, isError } = useSummoner({user})
-
-    if (isLoading) return <div>LOADING SUMMONER CARD</div>
-    if (isError) return <div>failed to load</div>
+    if (summoner === null || isError) return <div>No summoner found :(</div>
+    if (isLoading) return <div><LoadingCard /></div>
     console.log(" SUMMONER CARD")
     console.log(summoner)
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
-    const imageSrc = '/images/vex.jpg'
     const name = summonerInfo.name || "x"
     const level = summonerInfo.summonerLevel || "x"
     const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summonerInfo.profileIconId}.png` || "x"
