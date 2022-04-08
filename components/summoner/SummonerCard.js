@@ -12,6 +12,7 @@ export default function SummonerCard({ user, color }) {
     if (isLoading) return <div><LoadingCard /></div>
     console.log(" SUMMONER CARD")
     console.log(summoner)
+
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
     const name = summonerInfo.name || "x"
@@ -22,21 +23,21 @@ export default function SummonerCard({ user, color }) {
     var lp = ""
     var wins = ""
     var losses = ""
-    var winrate =  ""
-    
-    if(rankedInfo) {
+    var winrate = ""
+
+    if (rankedInfo) {
         rank = rankedInfo.tier || "x"
         division = rankedInfo.rank || "x"
         lp = rankedInfo.leaguePoints || "x"
         wins = rankedInfo.wins || "x"
         losses = rankedInfo.losses || "x"
-        winrate =  parseFloat(((wins/(wins+losses)) * 100)).toFixed(2) || "x"
+        winrate = parseFloat(((wins / (wins + losses)) * 100)).toFixed(2) || "x"
     }
 
     // * creates correct string for fontSize style
     const style = {
         fontSize: { fontSize: String(fitGameId(name)) + 'px' },
-        bgColor: { backgroundColor: String({color}) + 'CC' }
+        bgColor: { backgroundColor: String({ color }) + 'CC' }
     }
 
     // * creates path for icon in images temporary until api
@@ -57,7 +58,7 @@ export default function SummonerCard({ user, color }) {
                     </AccentBorder>
                 </div>
                 {/* User and rank */}
-                <span className="flex w-full place-content-center" id='summoner-name' style={style.fontSize}>
+                <span className="flex w-full place-content-center whitespace-nowrap" id='summoner-name' style={style.fontSize}>
                     {name}
                 </span>
 
@@ -73,7 +74,7 @@ export default function SummonerCard({ user, color }) {
                 </Color>
 
                 {/* Rank icon */}
-                <div name="ranked-icon" className="flex h-fill w-fill justify-center">
+                <div name="ranked-icon" className="flex w-fill justify-center pb-3">
                     <img className="object-cover w-44" src={rankedIcon} alt=""></img>
                 </div>
 

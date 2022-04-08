@@ -39,21 +39,26 @@ export default function Match({ user, matchID, color }) {
     const gold = player.goldEarned || '0'
     const damageDealt = player.totalDamageDealt
     const damage = (damageDealt > 1000 ? (damageDealt / 1000).toFixed(1) + 'k' : damageDealt) || '0'
-    let tempDuration = ((match.info.gameDuration/60).toFixed(2)).split(".")
+    let tempDuration = ((match.info.gameDuration / 60).toFixed(2)).split(".")
     const mins = tempDuration[0]
     const secs = tempDuration[1]
     const duration = mins + 'm ' + secs + 's' || 'x'
-    const timeAgo = parseInt((Date.now() - match.info.gameEndTimestamp)/86400000) + ' days ago'  || '0'
+    const timeAgo = parseInt((Date.now() - match.info.gameEndTimestamp) / 86400000) + ' days ago' || '0'
     const gamemode = match.info.gameMode || 'x'
     const kp = 'x'
 
-    console.log(match)
+    // console.log(match)
 
     //* created to place image as background of div and crop ugly dark borders
-    const croppedImage = {
-        backgroundImage: 'url(' + championIcon + ')',
-        backgroundPosition: 'center',
-        backgroundSize: '6.50rem'
+    const style = {
+        bgItems: {
+            backgroundColor: darken(color, 10)
+        },
+        croppedImage: {
+            backgroundImage: 'url(' + championIcon + ')',
+            backgroundPosition: 'center',
+            backgroundSize: '6.50rem'
+        }
     }
 
     return (
@@ -70,7 +75,7 @@ export default function Match({ user, matchID, color }) {
 
                 <div name="left-side-icons" className="h-100 w-1/6 relative">
                     <AccentBorder className="rounded-full w-100 h-100" borderRadius='16px' borderWidth='4px' color={color}>
-                        <div name="champion-icn" className='h-full w-full rounded-xl' style={croppedImage} ></div>
+                        <div name="champion-icn" className='h-full w-full rounded-xl' style={style.croppedImage} ></div>
                     </AccentBorder>
                     <AccentBorder className="absolute left-[1.938rem] top-[5rem] h-35 w-35" borderRadius={'9999px'} borderWidth='4px' color={color}>
                         <p name="player-level" className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
@@ -148,10 +153,10 @@ function findSummonerParticipantID(participants, name) {
     for (let i = 0; i < 10; i++) {
         if (participants[i].summonerName === name) return i;
     }
-  }
+}
 
 function getIconURL(iconID) {
-    if(iconID === 0) return;
+    if (iconID === 0) return;
     return `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/item/${iconID}.png`
 }
 
