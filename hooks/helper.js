@@ -2,32 +2,29 @@ import useSWR from 'swr'
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-export function useSummoner({ user }) {
-    const { data, error } = useSWR(user ? `/api/region/${user}` : null, fetcher)
-    
-    if (error) return error;
-    let toReturn = {
-      summoner: data.summoner,
-      ranked: data.ranked
-    }
+  export function getSummoner({region, user}) {
+    const { data, error } = useSWR(user ? `/api/${region}/${user}` : null, fetcher)
+
+    if (error || data === null) return error;
     return {
-      summoner: toReturn,
+      summoner: data,
       isLoading: !error && !data,
       isError: error
     }
   }
 
-  export function useMatches({ user }) {
+  export function getMatches({ user }) {
+    if (user === null || typeof user === 'undefined') return null;
     const { data, error } = useSWR(user ? `/api/region/${user}?matches=10` : null, fetcher)
     
     return {
-      matches: data.matches,
+      matches: data,
       isLoading: !error && !data,
       isError: error
     }
   }
 
-  export function useMatch({ user, matchID }) {
+  export function getMatchDetails({ user, matchID }) {
     const { data, error } = useSWR(user ? `/api/region/${user}?match=${matchID}` : null, fetcher)
     
     return {
@@ -45,15 +42,8 @@ export function useSummoner({ user }) {
     return data;
   }
 
-  export async function getSummonerName(summonerSpellID) {
-    const getSummonerPath = `http://ddragon.leagueoflegends.com/cdn/12.6.1/data/en_US/summoner.json`
-
-    let res = await fetch(getSummonerPath);
-    let data = await res.json()
-
-    (data.data).forEach(item => {
-      
-    })
-
-    return data;
-  }
+  export function findSummonerParticipantID(participants, name) {
+    for (let i = 0; i < 10; i++) {
+        if (participants[i].summonerName === name) return i;
+    }
+}

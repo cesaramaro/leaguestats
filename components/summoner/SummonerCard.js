@@ -1,4 +1,4 @@
-import { useSummoner } from"../../hooks/helper"
+import { getSummoner } from"../../hooks/helper"
 import Color from "color-thief-react";
 import { brighten, } from "../../lib/shiftColor";
 import AccentBorder from "../common/BorderAccent";
@@ -6,12 +6,11 @@ import Card from "../common/card";
 import { fitGameId } from '../../lib/fitGameId';
 import LoadingCard from "./LoadingCard";
 
-export default function SummonerCard({ user, color }) {
-    const { summoner, isLoading, isError } = useSummoner({user})
+export default function SummonerCard({ region, user, color }) {
+    const { summoner, isLoading, isError } = getSummoner({region, user})
+
     if (summoner === null || isError) return <div>No summoner found :(</div>
-    if (isLoading) return <div><LoadingCard /></div>
-    console.log(" SUMMONER CARD")
-    console.log(summoner)
+    if (isLoading) return <div><LoadingCard color={color}/></div>
 
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
@@ -46,7 +45,7 @@ export default function SummonerCard({ user, color }) {
     return (
         <div className="font-semibold">
             {/* Profile icon, level icon, username, rank icon, rank+division, LP, winrate */}
-            <Card className='flex flex-col justify-between center p-12 w-300' color={color}>
+            <Card className='flex flex-col justify-between center p-12 w-300  shadow-lg' color={color}>
                 <div name="icon-lvl" className="flex relative h-fill w-fill mb-2 justify-center">
 
                     <AccentBorder name="player-icon" className="flex w-150 h-150" color={color} borderRadius='99999px' borderWidth='4px'>

@@ -14,7 +14,7 @@ import { darken } from "../../lib/shiftColor"
 export function BackgroundHome({ children, imageSrc }) {
 
     //~if no image set default image
-    if (!imageSrc) { imageSrc = '/images/vex.jpg' }
+    if (!imageSrc) { imageSrc = 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/uikit/backdrop-magic/backdrop-magic.png' }
 
     // * creates styles for background and for dim layer
     const style = {
@@ -59,7 +59,7 @@ export function BackgroundSummoner({ children, imageSrc, color }) {
     //~ if no color make it grey
     if (!color) { color = '#808080' }
     //~if no image set default image
-    if (!imageSrc) { imageSrc = '/images/vex.jpg' }
+    if (!imageSrc) { imageSrc = 'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/uikit/backdrop-magic/backdrop-magic.png' }
 
     // * gets darker color from helper function
     var darker = darken(color, 10)

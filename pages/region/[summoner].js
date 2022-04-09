@@ -1,4 +1,3 @@
-import Match from '../../components/match/Match'
 import SummonerCard from '../../components/summoner/SummonerCard'
 import useSWR from 'swr'
 import { useRouter } from 'next/router' 
@@ -7,6 +6,7 @@ import Color from "color-thief-react";
 import { BackgroundSummoner } from "../../components/common/BackgroundLayer";
 import Loading from '../../components/common/Loading'
 import { shiftColor } from '../../lib/shiftColor'
+import Matches from '../../components/match/Matches'
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -14,13 +14,13 @@ export default function Summoner() {
 
   const router = useRouter()
   const { summoner } = router.query
+  const region = 'region'
   const { data, error } = useSWR(summoner ? `/api/region/${summoner}` : null, fetcher)
 
-  if (error || data === null) return <div>Failed to load summoner...</div>
-  if (!data) return <div><Loading /></div>
+  if (error || data === null) return <div><Loading error={true} /></div>
+  if (!data) return <div><Loading/></div>
   
   const userName = (data.summoner.name).toString();
-  const matches = data.matches
   const highestMasteryID = data.mastery[0].championId
   const imageSrc = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/uncentered/${highestMasteryID}/${highestMasteryID}000.jpg`
 
@@ -35,28 +35,12 @@ export default function Summoner() {
         <BackgroundSummoner color={shiftColor(data)} imageSrc={imageSrc}>
           <div className="w-screen min-w-1072">
             <NavBarWSearch color={shiftColor(data)} />
-            <div className="flex flex-row justify-center gap-6 pt-32" ><SummonerCard user={userName} color={shiftColor(data)} />
-              <div className="flex flex-col gap-6">{matches.map(match => <Match user={userName} matchID={match} color={shiftColor(data)} />)}</div>
+            <div className="flex flex-row justify-center gap-6 pt-32" ><SummonerCard region={region} user={userName} color={shiftColor(data)} />
+              <Matches user={userName} color={shiftColor(data)}/>
             </div>
           </div>
         </BackgroundSummoner>
       )}
     </Color>
   );
-}
-
-{/* for navbar with search
-
-<div className="min-w-1072">
-          <NavBarWSearch />
-*/}
-
-{// for sidebar navbar
-
-  /* <BackgroundSummoner color={data} imageSrc='url(/images/ahri.jpg)'>
-
-        <div>
-          <SideBar color={data} />
-          <header className="fixed flex w-screen p-6 place-content-center">
-            <span className='w-700'> <SearchBar color={data} /> </span> */
 }

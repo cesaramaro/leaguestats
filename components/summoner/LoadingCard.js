@@ -6,23 +6,20 @@ import Card from "../common/card";
 import { fitGameId } from '../../lib/fitGameId';
 
 export default function LoadingCard() {
-    const color = '#808080'
     return (
         <div className="font-semibold">
             {/* Profile icon, level icon, username, rank icon, rank+division, LP, winrate */}
-            <Card className='flex flex-col justify-between center p-12 w-300 animate-pulse' color={color}>
+            <Card className='flex flex-col justify-between center p-12 w-300 animate-pulse'>
                 <div name="icon-lvl" className="flex relative h-fill w-fill mb-2 justify-center">
-                    <AccentBorder name="player-icon" className="flex w-150 h-150" color={color} borderRadius='99999px' borderWidth='4px'>
+                    <AccentBorder name="player-icon" className="flex w-150 h-150" borderRadius='99999px' borderWidth='4px'>
                     </AccentBorder>
-                    <AccentBorder name="player-level" className="absolute h-45 w-45 left-1 bottom-1" color={color} borderRadius='99999px' borderWidth='4px'>
+                    <AccentBorder name="player-level" className="absolute h-45 w-45 left-1 bottom-1" borderRadius='99999px' borderWidth='4px'>
                         <p className="flex text-center place-items-center justify-center h-full font-bold"></p>
                     </AccentBorder>
                 </div>
                 {/* User and rank */}
                 <span className="flex w-full place-content-center" id='summoner-name'>
                 </span>
-
-                {/* //! Wip dont know what color to use */}
 
                 {/* Rank icon */}
                 <div name="ranked-icon" className="flex h-fill w-fill justify-center">

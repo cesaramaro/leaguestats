@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const { summoner, matches, match } = req.query
   const summonerName = {summoner}.summoner.toString();
   
-  if (!match && !matches) {
+  if (summoner && !match && !matches) {
     try {
       const response = await getSummonerData(summonerName);
       res.status(200).json(response);
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       res.status(405).end();
     }
   }
-
+  
   if (match && !matches) {
     try {
       const response = await getMatchDetails(match);
@@ -48,7 +48,8 @@ async function getSummonerData(summoner) {
     let matchesList = await getMatches(summoner)
     let masteries = await getSummonerMastery(data.id)
     let rankedList = await getSummonerRanked(data.id)
-  
+
+
     let toReturn = {
       summoner: data,
       mastery: masteries,

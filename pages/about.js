@@ -1,6 +1,6 @@
 import Head from "next/head";
 import NavBar from "../components/common/NavBar";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/common/SearchBar";
 import Footer from "../components/common/Footer";
 import { BackgroundHome } from "../components/common/BackgroundLayer";
 
