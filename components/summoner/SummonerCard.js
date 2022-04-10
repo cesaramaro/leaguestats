@@ -23,6 +23,7 @@ export default function SummonerCard({ region, user, color }) {
     var wins = ""
     var losses = ""
     var winrate = ""
+    var rankedIconBorder = ""
 
     if (rankedInfo) {
         rank = rankedInfo.tier || "x"
@@ -31,6 +32,8 @@ export default function SummonerCard({ region, user, color }) {
         wins = rankedInfo.wins || "x"
         losses = rankedInfo.losses || "x"
         winrate = parseFloat(((wins / (wins + losses)) * 100)).toFixed(2) || "x"
+        let lowercaseRank = rank.toString().toLowerCase();
+        rankedIconBorder = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-emblem/wings/wings_${lowercaseRank}.png`
     }
 
     // * creates correct string for fontSize style
@@ -45,16 +48,19 @@ export default function SummonerCard({ region, user, color }) {
     return (
         <div className="font-semibold">
             {/* Profile icon, level icon, username, rank icon, rank+division, LP, winrate */}
-            <Card className='flex flex-col justify-between center p-12 w-300  shadow-lg' color={color}>
-                <div name="icon-lvl" className="flex relative h-fill w-fill mb-2 justify-center">
-
+            <Card className='flex flex-col justify-between center p-12 w-300 shadow-lg' color={color}>
+                <div name="icon-lvl" className="flex relative pt-12 h-fill w-[20rem] mb-2 justify-center">
+                    <div className="absolute z-1">
+                        <img className="justify-center object-cover mt-[-13.5rem] h-[30rem]" src={rankedIconBorder}></img>
+                    </div>
+                    <div className="relative">
                     <AccentBorder name="player-icon" className="flex w-150 h-150" color={color} borderRadius='99999px' borderWidth='4px'>
-                        <img className="object-cover rounded-full" src={icon} alt=""></img>
-
+                        <span><img className="object-cover rounded-full" src={icon} alt=""></img></span> 
                     </AccentBorder>
-                    <AccentBorder name="player-level" className="absolute h-45 w-45 left-1 bottom-1" color={color} borderRadius='99999px' borderWidth='4px'>
+                    <AccentBorder name="player-level" className="absolute h-45 w-45 left-2 bottom-1 z-10" color={color} borderRadius='99999px' borderWidth='4px'>
                         <p className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
                     </AccentBorder>
+                    </div>
                 </div>
                 {/* User and rank */}
                 <span className="flex w-full place-content-center whitespace-nowrap" id='summoner-name' style={style.fontSize}>
