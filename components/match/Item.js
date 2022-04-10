@@ -1,12 +1,14 @@
-export default function Item({item}) {
-    if(!item) {
-        return(
-            <div className="flex flex-col items-center"><span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"></span></div>
+import Image from "next/image";
+
+export default function Item({ item, color }) {
+    if (!item) {
+        return (
+            <div className="flex flex-col items-center"><span className="h-40 w-40 rounded-lg overflow-hidden flex" style={color}></span></div>
         )
     }
     const itemURL = getIconURL(item) || 'x'
     return (
-        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex bg-gray-700"><img className="object-cover" src={itemURL} alt=""></img></span></div>
+        <div className="flex flex-col items-center"> <span className="h-40 w-40 rounded-lg overflow-hidden flex" style={color}><Image layout="intrinsic" src={itemURL} alt="summoner item" width={"100%"} height={"100%"}></Image></span></div>
     )
 }
 

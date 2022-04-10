@@ -1,6 +1,7 @@
 module.exports = {
   images: {
     domains: ["raw.communitydragon.org"],
+    domains: ["ddragon.leagueoflegends.com"],
   },
   webpack(config) {
     config.module.rules.push({
@@ -16,7 +17,7 @@ module.exports = {
 /**
  * Remove undefined values so Next.js doesn't complain during serialization. Verified as of v11.1.2.
  */
- const removeUndefined = (obj) => {
+const removeUndefined = (obj) => {
   let newObj = {};
   Object.keys(obj).forEach((key) => {
     if (obj[key] === Object(obj[key])) newObj[key] = removeUndefined(obj[key]);
