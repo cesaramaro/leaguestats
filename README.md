@@ -1,5 +1,5 @@
 # nerf this. was created to retrieve and display League of Legends data and statistics to its players
-### Below are images of the home page and an example summoner page with their stats
+### While we're still in development and there is much to be implemented, below are some images of the home page and example summoner pages with their stats
 
 ### Home page 1:
 ![HomeAhri](https://user-images.githubusercontent.com/36521013/162660948-609e54cc-4236-4468-81d0-b65dd8c64181.png)
