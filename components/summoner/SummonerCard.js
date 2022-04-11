@@ -11,27 +11,23 @@ export default function SummonerCard({ region, user, color }) {
 
     if (summoner === null || isError) return <div>No summoner found :(</div>
     if (isLoading) return <div><LoadingCard color={color}/></div>
+    if(!summoner.summoner) return <div><Error color={color}/></div>
 
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
-    const name = summonerInfo.name || "x"
-    const level = summonerInfo.summonerLevel || "x"
+    const name = summonerInfo.name || "Summoner not found"
+    const level = summonerInfo.summonerLevel || "0"
     const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summonerInfo.profileIconId}.png` || "x"
     var rank = "Unranked"
-    var division = ""
-    var lp = ""
-    var wins = ""
-    var losses = ""
-    var winrate = ""
-    var rankedIconBorder = ""
+    var division, lp, wins, losses, winrate, rankedIconBorder, rankedTinyCrest = ""
 
     if (rankedInfo) {
-        rank = rankedInfo.tier || "x"
-        division = rankedInfo.rank || "x"
-        lp = rankedInfo.leaguePoints || "x"
-        wins = rankedInfo.wins || "x"
-        losses = rankedInfo.losses || "x"
-        winrate = parseFloat(((wins / (wins + losses)) * 100)).toFixed(2) || "x"
+        rank = rankedInfo.tier || "0"
+        division = rankedInfo.rank || "0"
+        lp = rankedInfo.leaguePoints + " LP" || "0 LP"
+        wins = rankedInfo.wins + "W /" || "0W"
+        losses = rankedInfo.losses + "L" || "0L"
+        winrate = parseFloat(((rankedInfo.wins / (rankedInfo.wins + rankedInfo.losses)) * 100)).toFixed(2).concat("% winrate") || "0% winrate"
         let lowercaseRank = rank.toString().toLowerCase();
         rankedIconBorder = `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/ranked-emblem/wings/wings_${lowercaseRank}.png`
     }
@@ -72,7 +68,7 @@ export default function SummonerCard({ region, user, color }) {
                     {({ data, loading, error }) => (
                         <div className="flex flex-col mb-1 mt-2 text-2xl justify-center text-center center font-bold" style={{ color: brighten(data, 20) }}>
                             <p style={{ textShadow: '0px 2px 10px ' + data }} >{rank} {division}</p>
-                            <p >{lp} LP</p>
+                            <p >{lp}</p>
                         </div>
                     )}
 
@@ -85,8 +81,8 @@ export default function SummonerCard({ region, user, color }) {
 
                 { /* Win rate */}
                 <div className="flex flex-col mb-1 text-2xl justify-center text-center text-gray-300">
-                    <p>{winrate}% winrate</p>
-                    <p>{wins}W / {losses}L</p>
+                    <p>{winrate}</p>
+                    <p>{wins} {losses}</p>
                 </div>
             </Card>
         </div >

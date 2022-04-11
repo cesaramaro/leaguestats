@@ -1,5 +1,5 @@
 import LoadingCard from "../summoner/LoadingCard";
-import LoadingMatches from "../match/LoadingMatches";
+import LoadingMatch from "../match/LoadingMatch";
 import NavBarWSearch from "../../components/common/NavBarWSearch"
 import { BackgroundSummoner } from "../../components/common/BackgroundLayer";
 
@@ -32,7 +32,7 @@ export default function Loading({error}) {
         <div className="w-screen min-w-1072">
           <NavBarWSearch />
           <div className="flex flex-row justify-center gap-6 pt-32" ><LoadingCard/>
-            <div className="flex flex-col gap-6"><LoadingMatches /></div>
+            <div className="flex flex-col gap-6"><LoadingMatch /><LoadingMatch /></div>
           </div>
         </div>
       </BackgroundSummoner>

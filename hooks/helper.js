@@ -43,7 +43,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json())
   }
 
   export function findSummonerParticipantID(participants, name) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < participants.length; i++) {
         if (participants[i].summonerName === name) return i;
     }
 }

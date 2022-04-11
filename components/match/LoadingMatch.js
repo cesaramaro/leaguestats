@@ -7,7 +7,7 @@ import Stats from './Stats'
 import Time from './Time'
 
 export default function LoadingMatch() {
-    return (
+        return (
             <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold shadow-lg hover:shadow-xl animate-pulse">
                 <ChampionIcon/>
                 <Spells/>

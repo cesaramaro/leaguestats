@@ -7,22 +7,24 @@ import KDA from './KDA'
 import Stats from './Stats'
 import Time from './Time'
 import LoadingMatch from './LoadingMatch'
+import Error from './Error'
 
 export default function Match({ user, matchID, color }) {
     const { match, isLoading, isError } = getMatchDetails({ user, matchID })
 
     if (isLoading) return <div><LoadingMatch /></div>
-    if (isError || match === null) return <div>No match :(</div>
+    if (isError || match === null || !match.info || !user) return <div><Error color={color}/></div>
 
     const participantID = findSummonerParticipantID(match.info.participants, user)
     const player = match.info.participants[participantID]
+    if (!player) return <div><Error color={color}/></div>
     const outcome = (player.win ? 'victory' : 'defeat')
 
     return (
         <Card className="flex h-150 w-700 center gap-4 text-gray-200 font-semibold shadow-lg hover:shadow-xl" color={color} outcome={outcome}>
             {/* Champion Icon and Level */}
             <ChampionIcon user={user} matchID={matchID} color={color} />
-
+            
             {/* Summoner Spells and Runes */}
             <Spells user={user} matchID={matchID} color={color} />
 
