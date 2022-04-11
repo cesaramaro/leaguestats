@@ -1,7 +1,6 @@
 module.exports = {
   images: {
-    domains: ["raw.communitydragon.org"],
-    domains: ["ddragon.leagueoflegends.com"],
+    domains: ['ddragon.leagueoflegends.com', 'raw.communitydragon.org'],
   },
   webpack(config) {
     config.module.rules.push({

@@ -5,13 +5,14 @@ import AccentBorder from "../common/BorderAccent";
 import Card from "../common/card";
 import { fitGameId } from '../../lib/fitGameId';
 import LoadingCard from "./LoadingCard";
+import Loading from "../common/Loading";
 
 export default function SummonerCard({ region, user, color }) {
     const { summoner, isLoading, isError } = getSummoner({region, user})
 
     if (summoner === null || isError) return <div>No summoner found :(</div>
     if (isLoading) return <div><LoadingCard color={color}/></div>
-    if(!summoner.summoner) return <div><Error color={color}/></div>
+    if(!summoner.summoner) return <div><Loading error={true}/></div>
 
     const summonerInfo = summoner.summoner
     const rankedInfo = summoner.ranked[0]
