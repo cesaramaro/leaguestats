@@ -1,4 +1,4 @@
-const apiKey = 'EXAMPLE_KEY'
+const apiKey = process.env.API_KEY
 
 export default async function handler(req, res) {
   const { summoner, matches, match } = req.query
