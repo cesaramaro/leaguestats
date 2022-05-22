@@ -4,19 +4,38 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@layer components{
-    .icon {
-        @apply relative rounded-full bg-purple-300 border-4 border-purple-400 flex items-center justify-center
-    }
-    .center {
-        @apply bg-center snap-center self-center text-center items-center origin-center object-center justify-center content-center place-self-center place-items-center justify-self-center place-content-center justify-items-center
-    }
-    .min-w-1072{
-        @apply min-w-[67rem]
-    }
+@layer components {
+	.icon {
+		@apply relative rounded-full bg-purple-300 border-4 border-purple-400 flex items-center justify-center;
+	}
+	.center {
+		@apply bg-center snap-center self-center text-center items-center origin-center object-center justify-center content-center place-self-center place-items-center justify-self-center place-content-center justify-items-center;
+	}
+	.min-w-1072 {
+		@apply min-w-[67rem];
+	}
 
-    .max-w-1072{
-        @apply max-w-[67rem]
-    }
+	.max-w-1072 {
+		@apply max-w-[67rem];
+	}
+}
 
+::-webkit-scrollbar {
+	width: .5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: .5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }

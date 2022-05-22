@@ -36,13 +36,13 @@ function IconNavBar(props) {
 export default function NavBarWSearch(props) {
 
     return (
-        <header className='fixed flex place-content-center w-screen py-6 gap-6 min-w-1072 z-10'>
+        <nav className='flex place-content-center py-6 gap-6 w-1072 z-10'>
             <div className="w-300" >
                 <IconNavBar color={props.color} />
             </div >
             <div className='w-700'>
                 <SearchBar color={props.color} />
             </div>
-        </header >
+        </nav>
     )
 }
