@@ -1,9 +1,9 @@
-const apiKey = 'EXAMPLE_KEY'
+const apiKey = 'RGAPI-576d9cc6-c550-49f8-9b21-fd0b95116faa'
 
 export default async function handler(req, res) {
   const { summoner, matches, match } = req.query
-  const summonerName = {summoner}.summoner.toString();
-  
+  const summonerName = { summoner }.summoner.toString();
+
   if (summoner && !match && !matches) {
     try {
       const response = await getSummonerData(summonerName);
@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       res.status(405).end();
     }
   }
-  
+
   if (match && !matches) {
     try {
       const response = await getMatchDetails(match);
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
 
 async function getSummonerData(summoner) {
   try {
-    const getSummoner = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${apiKey}` 
+    const getSummoner = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summoner}?api_key=${apiKey}`
     let response = await fetch(getSummoner);
     let data = await response.json()
     let matchesList = await getMatches(summoner)

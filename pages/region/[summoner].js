@@ -33,6 +33,7 @@ export default function Summoner() {
     <Color src={imageSrc} format="hex" crossOrigin="anonymous">
       {({ data, loading, error }) => (
         <BackgroundSummoner color={shiftColor(data)} imageSrc={imageSrc}>
+
           <div className="w-1072 m-auto overflow-hidden">
             <div className='fixed'>
               <NavBarWSearch color={shiftColor(data)} />
@@ -48,8 +49,8 @@ export default function Summoner() {
                 <Matches user={userName} color={shiftColor(data)} />
               </div>
             </div>
-
           </div>
+
         </BackgroundSummoner>
       )}
     </Color>

@@ -18,7 +18,7 @@ export default function SummonerCardTwo({ region, user, color }) {
     const rankedInfo = summoner.ranked[0]
     const name = summonerInfo.name || "Summoner not found"
     const level = summonerInfo.summonerLevel || "0"
-    const icon = `http://ddragon.leagueoflegends.com/cdn/12.6.1/img/profileicon/${summonerInfo.profileIconId}.png` || "x"
+    const icon = `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${summonerInfo.profileIconId}.jpg` || "x"
     var rank = "Unranked"
     var division, lp, wins, losses, winrate, rankedIconBorder, rankedTinyCrest = ""
 
@@ -47,7 +47,8 @@ export default function SummonerCardTwo({ region, user, color }) {
                     <div name="icon-lvl" className="flex relative h-fill justify-center">
                         <div className="relative">
                             <AccentBorder name="player-icon" className="flex w-150 h-150" color={color} borderRadius='99999px' borderWidth='4px'>
-                                <span><img className="object-cover rounded-full" src={icon} alt=""></img></span>
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img className="object-cover rounded-full" src={icon} alt=""></img>
                             </AccentBorder>
                             <AccentBorder name="player-level" className="absolute h-45 w-45 left-0 bottom-0 z-10" color={color} borderRadius='99999px' borderWidth='4px'>
                                 <p className="flex text-center place-items-center justify-center h-full font-bold">{level}</p>
@@ -92,7 +93,7 @@ export default function SummonerCardTwo({ region, user, color }) {
                     </div>
                     <div className="relative">
                         <AccentBorder name="player-icon" className="flex w-[8rem]" color={color} borderRadius='99999px' borderWidth='4px'>
-                            <span><img className="object-cover rounded-full" src={icon} alt=""></img></span>
+                            <img className="object-cover rounded-full" src={icon} alt=""></img>
                         </AccentBorder>
                         <AccentBorder name="player-level" className="absolute h-40 w-40 left-[35%] -bottom-6 z-10" color={color} borderRadius='99999px' borderWidth='4px'>
                             <p className="flex text-center place-items-center justify-center h-full  font-bold">{level}</p>
