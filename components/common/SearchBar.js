@@ -19,7 +19,7 @@ export default function SearchBar(props) {
         <form onSubmit={redirectToSummoner} className="flex font-Inter text-2xl justify-center">
 
             <Card className="flex flex-row place-items-center w-full h-80 gap-6" color={props.color}>
-                <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold" id="summoner" name="summoner" type={"text"} htmlFor='search' placeholder="Search for Summoner..." required></input>
+                <input className="focus-visible:outline-none w-5/6 bg-transparent font-semibold placeholder:font-normal placeholder:text-white placeholder:opacity-50" id="summoner" name="summoner" type={"text"} htmlFor='search' placeholder="Search for Summoner..." required></input>
                 <select className="focus-visible:outline-none bg-transparent font-semibold">
                     <option value={'na'}>NA</option>
                     <option value={'na'}>NA</option>
