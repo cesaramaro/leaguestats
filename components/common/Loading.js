@@ -13,15 +13,6 @@ export default function Loading({ error }) {
 					<p className=' flex flex-col h-full place-content-center px-6 font-bold text-4xl text-gray-300 text-justify'>
 						We couldn&apos;t find that summoner... :&#40;
 						<br />
-						Try another region or verify the username is spelled correctly
-						<ul className='text-2xl'>
-							<br />
-							<p className='font-bold text-3xl text-black'>Regions</p>
-							<li>NA (North America)</li>
-							<li>LAN (Latin America North)</li>
-							<li>Region 3</li>
-							<li>Region 4</li>
-						</ul>
 					</p>
 				</div>
 			</BackgroundSummoner>
